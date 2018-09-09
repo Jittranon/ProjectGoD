@@ -1,11 +1,25 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
+  <ion-navbar color="taba">
+    <ion-title >
+      เกี่ยวกับ
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content class="background" >
+  <ion-list >
+    <ion-item (click)="user()" detail-push>
+      <ion-icon  class="liststyle" name = "person"> ผู้ใช้</ion-icon>
+    </ion-item>
+    <ion-item (click)="userdata()" detail-push>
+      <ion-icon  class="liststyle" name = "create"> ข้อมูลผู้ใช้</ion-icon>
+    </ion-item>
+    <ion-item (click)="productdata()" detail-push>
+      <ion-icon  class="liststyle" name = "leaf"> ข้อมูลสินค้า</ion-icon>
+    </ion-item>
+    <ion-item (click)="logout()" detail-push>
+      <ion-icon  class="liststyle" name = "log-out"> ลงชื่อออก</ion-icon>
+    </ion-item>
+  </ion-list>
+    
 </ion-content>

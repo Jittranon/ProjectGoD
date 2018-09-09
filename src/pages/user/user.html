@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="taba">
+      <ion-icon  color="light" name = "person"> ผู้ใช้</ion-icon>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background">
+  <ion-list> 
+            <ion-card *ngFor="let item of items" no-lines>
+              <img style="height: 300px" src="http://localhost:8080/smce/upload/{{ item.mem_logo }}"/>
+                  <ion-card-content >
+                  <ion-card-title>
+                    {{ item.mem_name }}
+                  </ion-card-title>
+                  <h4>{{ item.mem_detail }}</h4><br>
+                  <h4>{{ item.mem_addr }}</h4>
+                </ion-card-content>
+            </ion-card>
+  </ion-list>
+  <button  ion-button block outline (click)=save() color="light" >บันทึก</button>
+</ion-content>

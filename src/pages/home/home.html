@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="taba">
+       
+    <ion-title>หน้าแรก</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="background" >
+  <ion-list>
+  <ion-item>
+      <ion-slides pager >
+          <ion-slide>
+              <ion-slide *ngFor="let item of items"><img src="http://localhost:8080/smce/upload/{{ item.news_image }}"/></ion-slide>
+          </ion-slide>
+        </ion-slides>
+  </ion-item>
+</ion-list>
 </ion-content>

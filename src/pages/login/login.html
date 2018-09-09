@@ -1,0 +1,20 @@
+<ion-content class="background">
+  <ion-card>
+    <ion-card-header>
+      ลงชื่อเข้าใช้
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item> 
+          <ion-input type="text" placeholder="ชื่อผู้ใช้/อีเมล์" [(ngModel)]="user" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="รหัสผ่าน" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <a>ลืมรหัสผ่านไช่หรือไม่!<b> เรียกคืนรหัสผ่าน</b></a>
+      <button  ion-button block outline (click)=login() color="light" >ลงชื่อเข้าใช้</button>
+    </ion-card-content>
+  </ion-card>
+  <button class="bottom" ion-button clear full (click)=loginAll() color="light"  >เข้าสู่ระบบโดยไม่ต้องลงชื่อเข้าใช้</button>
+</ion-content>

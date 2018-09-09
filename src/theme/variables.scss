@@ -38,7 +38,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  taba:       #201f1f
 );
 
 
@@ -46,7 +47,14 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+//background all page
+.background {
+  background-image: url('../assets/imgs/bg.jpg');
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
 
 
 // App Material Design Variables
@@ -86,3 +94,6 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+$item-md-detail-push-show: true;
+$item-wp-detail-push-show: true;
