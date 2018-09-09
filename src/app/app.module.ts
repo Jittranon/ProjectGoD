@@ -9,7 +9,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MapPage } from '../pages/map/map';
 import { ProductPage } from '../pages/product/product';
 import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
 import { ProductDetailPage } from '../pages/product-detail/product-detail';
 import { UserdataPage } from '../pages/userdata/userdata';
 import { UserPage } from '../pages/user/user';
@@ -28,7 +27,6 @@ import { HttpModule } from '@angular/http'
     MapPage,
     ProductPage,
     LoginPage,
-    RegisterPage,
     ProductDetailPage,
     UserdataPage,
     UserPage,
@@ -51,7 +49,6 @@ import { HttpModule } from '@angular/http'
     MapPage,
     ProductPage,
     LoginPage,
-    RegisterPage,
     ProductDetailPage,
     UserdataPage,
     UserPage,
