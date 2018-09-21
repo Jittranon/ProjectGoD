@@ -13,6 +13,9 @@ import { ProductDetailPage } from '../pages/product-detail/product-detail';
 import { UserdataPage } from '../pages/userdata/userdata';
 import { UserPage } from '../pages/user/user';
 import { ProductdataPage } from '../pages/productdata/productdata';
+import { UserUpdatePage } from '../pages/user-update/user-update';
+import { UserDataUpdatePage } from '../pages/user-data-update/user-data-update';
+import { ProductUpdatePage } from '../pages/product-update/product-update';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,7 +33,10 @@ import { HttpModule } from '@angular/http'
     ProductDetailPage,
     UserdataPage,
     UserPage,
-    ProductdataPage
+    ProductdataPage,
+    UserUpdatePage,
+    UserDataUpdatePage,
+    ProductUpdatePage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,10 @@ import { HttpModule } from '@angular/http'
     ProductDetailPage,
     UserdataPage,
     UserPage,
-    ProductdataPage
+    ProductdataPage,
+    UserUpdatePage,
+    UserDataUpdatePage,
+    ProductUpdatePage
   ],
   providers: [
     StatusBar,

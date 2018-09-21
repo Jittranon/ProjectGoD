@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { UserUpdatePage } from '../user-update/user-update';
 
 @IonicPage()
 @Component({
@@ -10,9 +11,8 @@ import 'rxjs/add/operator/map';
 })
 export class UserPage {
   public items : any = [];
-  public userCode: any = 1;
   public baseURI :string = "http://localhost:8080/ionicAPI/";
-
+  public userCode: any = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public http:Http) {
@@ -20,6 +20,8 @@ export class UserPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
+    this.userCode=this.navParams.data;
+    console.log(this.userCode)
   }
   ionViewWillEnter(){
     this.load();
@@ -36,7 +38,7 @@ export class UserPage {
       this.items = data;
     });
   }
-  save(){
-
+  update(){
+    this.navCtrl.push(UserUpdatePage,this.userCode);
   }
 }

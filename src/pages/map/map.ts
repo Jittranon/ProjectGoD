@@ -9,13 +9,15 @@ declare var google: any;
 })
 export class MapPage {
   @ViewChild('map') mapElement: ElementRef;
-  map: any;
+  public map: any;
+  public user: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage');
+    this.user=this.navParams.data;
     this.initMap();
   }
   //แสดงแผนที่ (ระดับ,พิกัด)

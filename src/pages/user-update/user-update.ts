@@ -1,28 +1,29 @@
-import { Http, RequestOptions, Headers } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { ProductDetailPage } from '../product-detail/product-detail';
 
 
 @IonicPage()
 @Component({
-  selector: 'page-product',
-  templateUrl: 'product.html',
+  selector: 'page-user-update',
+  templateUrl: 'user-update.html',
 })
-export class ProductPage {
+export class UserUpdatePage {
   public items : any = [];
-  public userCode: any = 1;
+  public userCode: any;
   public baseURI :string = "http://localhost:8080/ionicAPI/";
-  public user: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public http:Http) {
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad UserUpdatePage');
+  }
   ionViewWillEnter(){
-    this.user=this.navParams.data;
+    this.userCode=this.navParams.data;
     this.load();
   }
   load(){
@@ -30,18 +31,14 @@ export class ProductPage {
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
-          url      : any      = this.baseURI + "selectproduct.php";
+          url      : any      = this.baseURI + "selectperson.php";
     this.http.post(url,body,options)
     .map(res => res.json())
     .subscribe(data => {
       this.items = data;
     });
   }
-  viewDetail(item){
-    this.navCtrl.push(ProductDetailPage,item);
+  update(){
+    this.navCtrl.pop();
   }
-  search(ev:any){
-    
-  }
-
 }

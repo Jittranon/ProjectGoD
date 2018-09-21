@@ -16,5 +16,4 @@ export class ProductDetailPage {
     console.log('ionViewDidLoad ProductDetailPage');
     this.items=this.navParams.data;
   }
-
 }

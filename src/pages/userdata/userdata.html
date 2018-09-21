@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="taba">
-      <ion-icon  color="light" name = "create"> ข้อมูลผู้ใช้</ion-icon>
+    <ion-title><ion-icon  color="light" name = "create"> ข้อมูลผู้ใช้</ion-icon></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,13 +9,10 @@
 
 <ion-content class="background">
 
-    <form [formGroup]="" (ngSubmit)="save()" >
+    <form [formGroup]="" >
         <ion-list  > 
                 <ion-item *ngFor="let item of items" no-lines>
                         <ion-card>
-                            <ion-fab right edge>
-                                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-                            </ion-fab>
                           <ion-card-header>ข้อมูลกลุ่ม</ion-card-header>
                           
                               <ion-card-content >
@@ -28,9 +25,6 @@
                             
                         </ion-card>
                         <ion-card>
-                            <ion-fab right edge>
-                                        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-                                    </ion-fab>
                                 <ion-card-header>ข้อมูลสมาชิก</ion-card-header>
                                 
                                 <ion-card-content >
@@ -49,9 +43,6 @@
                                 </ion-card-content>
                               </ion-card>
                               <ion-card>
-                                  <ion-fab right edge>
-                                        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-                                    </ion-fab>
                                 <ion-card-header>ข้อมูลช่องทางการติดต่อ</ion-card-header>
                                 
                                 <ion-card-content >
@@ -66,9 +57,6 @@
                                 </ion-card-content>
                                   </ion-card>
                                   <ion-card>
-                                      <ion-fab right edge>
-                                                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-                                            </ion-fab>
                                         <ion-card-header>ข้อมูลเกี่ยวกับธุรกิจ</ion-card-header>
                                         
                                         <ion-card-content >
@@ -79,5 +67,6 @@
                       </ion-item>
   </ion-list>
 </form>
+<button  ion-button block outline (click)=update() color="light" >แก้ไขข้อมูล</button>
   
 </ion-content>

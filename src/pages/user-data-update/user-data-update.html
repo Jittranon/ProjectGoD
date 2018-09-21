@@ -1,0 +1,75 @@
+
+<ion-header >
+
+  <ion-navbar color="taba">
+    <ion-title>แก้ไขข้อมูล</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background">
+  <form [formGroup]="" >
+    <ion-list  > 
+            <ion-item *ngFor="let item of items" no-lines>
+                    <ion-card>
+                       
+                      <ion-card-header>ข้อมูลกลุ่ม</ion-card-header>
+                      
+                          <ion-card-content >
+                            <h4>{{ item.g_code }}</h4>
+                            <h4>{{ item.t_code}}</h4><br>
+                            <h4>{{ item.boss_name }}</h4><br>
+                            <h4>{{ item.boss_tel }}</h4>
+                        </ion-card-content>
+                        
+                        
+                    </ion-card>
+                    <ion-card>
+                       
+                            <ion-card-header>ข้อมูลสมาชิก</ion-card-header>
+                            
+                            <ion-card-content >
+                                <h4>{{ item.mem_no }}</h4><br>
+                                <h4>{{ item.mem_typeid }}</h4><br>
+                                <h4>{{ item.mem_name}}</h4><br>
+                                <h4>{{ item.mem_nickname}}</h4><br>
+                                <h4>{{ item.mem_birthday}}</h4><br>
+                                <h4>{{ item.mem_metier}}</h4><br>
+                                <h4>{{ item.mem_income}}</h4><br>
+                                <h4>{{ item.mem_addr }}</h4><br>
+                                <h4>{{ item.geo_id }}</h4><br>
+                                <h4>{{ item.province_id }}</h4><br>
+                                <h4>{{ item.amphur_id }}</h4><br>
+                                <h4>{{ item.district_id }}</h4>
+                            </ion-card-content>
+                          </ion-card>
+                          <ion-card>
+                             
+                            <ion-card-header>ข้อมูลช่องทางการติดต่อ</ion-card-header>
+                            
+                            <ion-card-content >
+                                <h4>{{ item.mem_telhome }}</h4><br>
+                                <h4>{{ item.mem_mobile }}</h4><br>
+                                <h4>{{ item.mem_fax }}</h4><br>
+                                <h4>{{ item.mem_email }}</h4><br>
+                                <h4>{{ item.mem_line }}</h4><br>
+                                <h4>{{ item.mem_fb }}</h4><br>
+                                <h4>{{ item.mem_twitter }}</h4>
+                                
+                            </ion-card-content>
+                              </ion-card>
+                              <ion-card>
+                                 
+                                    <ion-card-header>ข้อมูลเกี่ยวกับธุรกิจ</ion-card-header>
+                                    
+                                    <ion-card-content >
+                                        <h4>{{ item.mem_detail }}</h4>
+                                        
+                                    </ion-card-content>
+                                      </ion-card>
+                  </ion-item>
+</ion-list>
+</form>
+<button  ion-button block outline (click)=update() color="light" >บันทึก</button>
+</ion-content>

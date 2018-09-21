@@ -42,8 +42,8 @@ export class LoginPage {
     this.http.post(url,body,options)
     .map(res => res.json())
     .subscribe(data => {
-      this.result = data;
-    if(this.result == 1 ){
+      this.result = data; 
+    if(this.result !="" ){
       this.navCtrl.push(TabsPage ,this.result);
     }else{
       alert("ชื่อผู้ใช้หรือรหัสผ่านผิด");
@@ -55,7 +55,7 @@ export class LoginPage {
     
   }
   loginAll(){
-    this.navCtrl.push(TabsPage );
+    this.navCtrl.push(TabsPage ,0);
   }
 
 }

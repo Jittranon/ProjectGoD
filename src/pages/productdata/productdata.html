@@ -1,20 +1,15 @@
-<!--
-  Generated template for the ProductdataPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="taba">
-      <ion-icon  color="light" name = "leaf"> ข้อมูลสินค้า</ion-icon>
+      <ion-title><ion-icon  color="light" name = "leaf"> ข้อมูลสินค้า</ion-icon></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content class="background">
     <ion-list>
-        <ion-card *ngFor="let item of items"  (click)=viewDetail(item) no-lines>
+        <ion-card *ngFor="let item of items"  (click)=viewDetail() no-lines>
             <ion-slides pager style="height: 300px;">
   
                 <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:8080/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>

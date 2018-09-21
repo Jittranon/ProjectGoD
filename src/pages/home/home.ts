@@ -1,6 +1,6 @@
 import { Http } from '@angular/http';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -9,11 +9,13 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
   public items : any = [];
+  public user: any=[];
 
-  constructor(public navCtrl: NavController,public http:Http) {
+  constructor(public navCtrl: NavController,public navParams:NavParams,public http:Http) {
 
   }
   ionViewWillEnter(){
+    //this.user=this.navParams.data;
     this.load();
   }
   load(){

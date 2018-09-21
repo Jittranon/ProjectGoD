@@ -1,0 +1,34 @@
+
+<ion-header >
+
+  <ion-navbar color="taba">
+    <ion-title>product-update</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background">
+  <ion-card>
+    <ion-slides pager style="height: 300px;" *ngFor="let items of items" >
+
+        <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic1 }}"/></ion-slide>
+        <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic2 }}"/></ion-slide>
+        <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic3 }}"/></ion-slide>
+        <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic4 }}"/></ion-slide>
+      
+      </ion-slides>
+</ion-card>
+<ion-card>
+  <ion-card-header>ข้อมูลสินค้า</ion-card-header>
+  <ion-card-content>
+    <b>ชื่อสินค้า</b> {{ items.gds_name }}<br>
+    <b>รายละเอียดสินค้า</b> {{ items.gds_detail }}<br>
+    <b>คุณสมบัติสินค้า</b> {{ items.gds_prob }}<br>
+    <b>ราคาสินค้า</b> {{ items.gds_price }}<b> บาท</b>
+
+  
+  </ion-card-content>
+</ion-card>
+<button  ion-button block outline (click)=update() color="light" >บันทึก</button>
+</ion-content>

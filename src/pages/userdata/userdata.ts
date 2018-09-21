@@ -1,3 +1,4 @@
+import { UserDataUpdatePage } from './../user-data-update/user-data-update';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/map';
 })
 export class UserdataPage {
   public items : any = [];
-  public userCode: any = 1;
+  public userCode: any ;
   public baseURI :string = "http://localhost:8080/ionicAPI/";
 
   constructor(public navCtrl: NavController, 
@@ -22,6 +23,7 @@ export class UserdataPage {
     console.log('ionViewDidLoad UserdataPage');
   }
   ionViewWillEnter(){
+    this.userCode=this.navParams.data;
     this.load();
   }
   load(){
@@ -36,7 +38,7 @@ export class UserdataPage {
       this.items = data;
     });
   }
-save(){
-  
+update(){
+  this.navCtrl.push(UserDataUpdatePage,this.userCode);
 }
 }

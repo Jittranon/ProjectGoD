@@ -1,18 +1,24 @@
 <ion-header>
   <ion-navbar color="taba">
-       
-    <ion-title>หน้าแรก</ion-title>
+    <ion-title >หน้าแรก <ion-title *ngFor="let user of user">{{ user.emp_id}}</ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="background" >
   <ion-list>
-  <ion-item>
+  <ion-card *ngFor="let item of items" style="height:50vh" >
       <ion-slides pager >
-          <ion-slide>
-              <ion-slide *ngFor="let item of items"><img src="http://localhost:8080/smce/upload/{{ item.news_image }}"/></ion-slide>
-          </ion-slide>
+              <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image1 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image2 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image3 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image4 }}"/></ion-slide>
+              <ion-card-title>
+              {{ item.news_date }}
+            </ion-card-title>
+          
         </ion-slides>
-  </ion-item>
+        
+  </ion-card>
 </ion-list>
 </ion-content>

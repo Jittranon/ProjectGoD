@@ -1,3 +1,4 @@
+import { ProductUpdatePage } from './../product-update/product-update';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -9,7 +10,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 })
 export class ProductdataPage {
   public items : any = [];
-  public userCode: any = 1;
+  public userCode: any;
   public baseURI :string = "http://localhost:8080/ionicAPI/";
 
   constructor(public navCtrl: NavController, 
@@ -21,6 +22,7 @@ export class ProductdataPage {
     console.log('ionViewDidLoad ProductdataPage');
   }
   ionViewWillEnter(){
+    this.userCode=this.navParams.data;
     this.load();
   }
   load(){
@@ -34,6 +36,9 @@ export class ProductdataPage {
     .subscribe(data => {
       this.items = data;
     });
+  }
+  viewDetail(){
+    this.navCtrl.push(ProductUpdatePage,this.userCode);
   }
 
 }
