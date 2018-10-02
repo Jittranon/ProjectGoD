@@ -15,6 +15,7 @@ export class MapPage {
   public user: any;
   public marker:any;
   public lgds: any;
+  public lgds2: any;
   public baseURI :string = "http://localhost:8080/ionicAPI/";
   public i:any=0;
 
@@ -25,7 +26,6 @@ export class MapPage {
     console.log('ionViewDidLoad MapPage');
     this.user=this.navParams.data;
     this.load();
-    this.initMap();
   }
   //แสดงแผนที่ (ระดับ,พิกัด)
   load(){
@@ -38,28 +38,21 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-      console.log(this.lgds);
 
+        this.map = new google.maps.Map(this.mapElement.nativeElement, {
+            center: {lat:this.lgds[0].lgds_lat,lng: this.lgds[0].lgds_lng},
+            zoom:10,
+            mapTypeid:'roadmap'
+        });
+
+      for(var i = 0; i < this.lgds.length; i++ ){
+        this.marker = new google.maps.Marker({
+          position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+          map: this.map
+        });
+      }
     });
-    /*this.lgds=[
-      [14,102],
-      [15,103],
-      [16,104],
-      [16,105]
-    ];*/
   }
-  initMap() {
-    this.map = new google.maps.Map(this.mapElement.nativeElement, {
-				center: {lat:14.9,lng: 102.08},
-				zoom:10,
-				mapTypeid:'roadmap'
-    });
-    /*for (this.i = 0; this.i < this.lgds.length; this.i++) {
-			this.marker = new google.maps.Marker({
-				position: new google.maps.LatLng(this.lgds[this.i][0], this.lgds[this.i][1]),
-				map: this.map
-			});
-		}*/
   }
 
-}
+
