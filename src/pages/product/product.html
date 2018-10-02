@@ -1,7 +1,24 @@
 <ion-header>
 
   <ion-navbar color="taba">
-      <ion-searchbar placeholder="ค้นหา" name="search" (ionInput)="search($event)"></ion-searchbar>
+      <ion-row>
+          <ion-col col-5>
+                <ion-input color="light" type="text" placeholder="คำค้นหา" [(ngModel)]="searchd" ></ion-input>
+          </ion-col>
+          <ion-col col-5>
+                <ion-select stacked [(ngModel)]="searchd" placeholder="เลือกประเภทสินค้า">
+                    <ion-option value="11">11</ion-option>
+                    <ion-option value="7">7</ion-option>
+                    <ion-option value="16">16</ion-option>
+                    <ion-option value="11">11</ion-option>
+                    <ion-option value="11">11</ion-option>
+                </ion-select>
+          </ion-col>
+          <ion-col col-2>
+              <button class="bottom" ion-button  (click)=search() color="light"  >ค้นหา</button>
+          </ion-col>
+      </ion-row>
+      
   </ion-navbar>
 
 </ion-header>

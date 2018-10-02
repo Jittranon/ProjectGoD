@@ -1,7 +1,8 @@
-import { ProductUpdatePage } from './../product-update/product-update';
+import { ProductUpdatePage } from '../product-update/product-update';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
@@ -37,8 +38,8 @@ export class ProductdataPage {
       this.items = data;
     });
   }
-  viewDetail(){
-    this.navCtrl.push(ProductUpdatePage,this.userCode);
+  viewDetail(item){
+    this.navCtrl.push(ProductUpdatePage,item);
   }
 
 }

@@ -1,24 +1,30 @@
 <ion-header>
   <ion-navbar color="taba">
-    <ion-title >หน้าแรก <ion-title *ngFor="let user of user">{{ user.emp_id}}</ion-title></ion-title>
+    <ion-title >หน้าแรก </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="background" >
   <ion-list>
-  <ion-card *ngFor="let item of items" style="height:50vh" >
-      <ion-slides pager >
+  <ion-card *ngFor="let item of items"  >
+      <ion-slides pager style="height:50vh" >
               <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image }}"/></ion-slide>
               <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image1 }}"/></ion-slide>
               <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image2 }}"/></ion-slide>
               <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image3 }}"/></ion-slide>
               <ion-slide ><img style="width: 100nw; height: 50vh;" src="http://localhost:8080/smce/upload/{{ item.news_image4 }}"/></ion-slide>
-              <ion-card-title>
-              {{ item.news_date }}
-            </ion-card-title>
-          
-        </ion-slides>
-        
+      </ion-slides>
+      <ion-card-content >
+           {{ item.news_detail }}      
+      </ion-card-content >
   </ion-card>
+  <ion-card>
+      <img src="{{ image_base64 }}"/>
+      <ion-card-content>
+         <button  ion-button block outline (click)=opencamera() color="light" >ถ่ายรูป</button>
+         <button  ion-button block outline (click)=updatepic() color="light" >อัพโหลด</button>
+      </ion-card-content>
+    </ion-card>
+ 
 </ion-list>
 </ion-content>

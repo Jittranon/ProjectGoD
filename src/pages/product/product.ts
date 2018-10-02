@@ -12,9 +12,9 @@ import { ProductDetailPage } from '../product-detail/product-detail';
 })
 export class ProductPage {
   public items : any = [];
-  public userCode: any = 1;
   public baseURI :string = "http://localhost:8080/ionicAPI/";
   public user: any;
+  public searchd:any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -26,7 +26,7 @@ export class ProductPage {
     this.load();
   }
   load(){
-    let   body     : string   = "key=select&userCode="+this.userCode,
+    let   body     : string   = "key=select",
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
@@ -40,8 +40,21 @@ export class ProductPage {
   viewDetail(item){
     this.navCtrl.push(ProductDetailPage,item);
   }
-  search(ev:any){
-    
+  search(){
+    this.loaddata(this.searchd);
+    console.log(this.searchd);
+  }
+  loaddata(searchd){
+    let   body     : string   = "key=selectproduct&searchd="+searchd,
+          type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
+          headers  : any      = new Headers({ 'Content-Type': type}),
+          options  : any      = new RequestOptions({ headers: headers }),
+          url      : any      = this.baseURI + "selectproduct.php";
+    this.http.post(url,body,options)
+    .map(res => res.json())
+    .subscribe(data => {
+      this.items = data;
+    });
   }
 
 }

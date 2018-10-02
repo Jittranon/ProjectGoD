@@ -16,10 +16,12 @@ import { ProductdataPage } from '../pages/productdata/productdata';
 import { UserUpdatePage } from '../pages/user-update/user-update';
 import { UserDataUpdatePage } from '../pages/user-data-update/user-data-update';
 import { ProductUpdatePage } from '../pages/product-update/product-update';
+import { TabsalluserPage } from '../pages/tabsalluser/tabsalluser';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpModule } from '@angular/http'
+import { HttpModule } from '@angular/http';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HttpModule } from '@angular/http'
     ProductdataPage,
     UserUpdatePage,
     UserDataUpdatePage,
-    ProductUpdatePage
+    ProductUpdatePage,
+    TabsalluserPage
   ],
   imports: [
     BrowserModule,
@@ -61,11 +64,13 @@ import { HttpModule } from '@angular/http'
     ProductdataPage,
     UserUpdatePage,
     UserDataUpdatePage,
-    ProductUpdatePage
+    ProductUpdatePage,
+    TabsalluserPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
   ]

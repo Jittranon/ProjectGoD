@@ -13,8 +13,26 @@ page-product {
         -moz-border-radius:15px; 
         -webkit-border-radius:15px; 
     }
-    input[type=text]{
-        color:#bcbcbc;
+    .input[type=text]{
+        color: #000000;;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        height: 95%!important;
+    }
+    .select{
+        color: #000000;;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        height: 95%!important;
+    }
+    .button{
+        color: #000000;;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        max-height: 100%!important;
     }
     ion-card.card {
         box-shadow: none;
@@ -26,6 +44,7 @@ page-product {
         margin-bottom: 2px;
         height: 50%;
         width: 100vw;
+        text-align: justify;
     }
     ion-card.card-title{
         width: 100vw;

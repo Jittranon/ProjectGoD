@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { Http,Headers,RequestOptions } from '@angular/http';
 import { TabsPage } from '../tabs/tabs';
+import { TabsalluserPage } from '../tabsalluser/tabsalluser';
 
 @IonicPage()
 @Component({
@@ -47,7 +48,7 @@ export class LoginPage {
       this.navCtrl.push(TabsPage ,this.result);
     }else{
       alert("ชื่อผู้ใช้หรือรหัสผ่านผิด");
-      this.navCtrl.setRoot(LoginPage );
+      this.navCtrl.setRoot(LoginPage);
     }
     });
     
@@ -55,7 +56,7 @@ export class LoginPage {
     
   }
   loginAll(){
-    this.navCtrl.push(TabsPage ,0);
+    this.navCtrl.push(TabsalluserPage );
   }
 
 }

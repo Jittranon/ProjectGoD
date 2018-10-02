@@ -18,7 +18,6 @@ export class AboutPage {
   }
   ionViewWillEnter(){
     this.user=this.navParams.data;
-    console.log(this.user);
   }
   userpro(){
     this.navCtrl.push(UserPage,this.user);

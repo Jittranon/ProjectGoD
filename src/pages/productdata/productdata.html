@@ -9,7 +9,7 @@
 
 <ion-content class="background">
     <ion-list>
-        <ion-card *ngFor="let item of items"  (click)=viewDetail() no-lines>
+        <ion-card *ngFor="let item of items"  (click)=viewDetail(item) no-lines>
             <ion-slides pager style="height: 300px;">
   
                 <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:8080/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>
