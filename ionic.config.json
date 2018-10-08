@@ -1,8 +1,8 @@
 {
   "name": "ProjectGoD",
-  "app_id": "8ba82e16",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "pro_id": "8ba82e16"
 }
