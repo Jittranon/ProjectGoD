@@ -1,7 +1,13 @@
 <ion-header>
-
   <ion-navbar color="taba">
-    <ion-title><ion-icon  color="light" name = "create"> ข้อมูลผู้ใช้</ion-icon></ion-title>
+    <ion-row>
+      <ion-col col-10>
+        <ion-title><ion-icon  color="light" name = "create"> </ion-icon>ข้อมูลผู้ประกอบการ</ion-title>
+      </ion-col>
+      <ion-col col-2 >
+          <ion-title (click)=update()><ion-icon   color="light" name = "create"></ion-icon></ion-title>
+      </ion-col>
+    </ion-row>  
   </ion-navbar>
 
 </ion-header>
@@ -10,16 +16,15 @@
 <ion-content class="background">
 
     <form [formGroup]="" >
-        <ion-list  > 
-                <ion-item *ngFor="let item of items" no-lines>
+        <ion-list *ngFor="let item of items"  > 
                         <ion-card>
                           <ion-card-header>ข้อมูลกลุ่ม</ion-card-header>
                           
                               <ion-card-content >
-                                <h4>{{ item.g_code }}</h4>
-                                <h4>{{ item.t_code}}</h4><br>
-                                <h4>{{ item.boss_name }}</h4><br>
-                                <h4>{{ item.boss_tel }}</h4>
+                                <h4><b>กลุ่มธุรกิจ</b> {{ item.g_code }}</h4>
+                                <h4><b>ประเภทธุรกิจ</b> {{ item.t_code}}</h4><br>
+                                <h4><b>ชื่อประธานกลุ่ม</b> {{ item.boss_name }}</h4><br>
+                                <h4><b>หมายเลขโทรศัพท์</b> {{ item.boss_tel }}</h4>
                             </ion-card-content>
                             
                             
@@ -28,31 +33,31 @@
                                 <ion-card-header>ข้อมูลสมาชิก</ion-card-header>
                                 
                                 <ion-card-content >
-                                    <h4>{{ item.mem_no }}</h4><br>
-                                    <h4>{{ item.mem_typeid }}</h4><br>
-                                    <h4>{{ item.mem_name}}</h4><br>
-                                    <h4>{{ item.mem_nickname}}</h4><br>
-                                    <h4>{{ item.mem_birthday}}</h4><br>
-                                    <h4>{{ item.mem_metier}}</h4><br>
-                                    <h4>{{ item.mem_income}}</h4><br>
-                                    <h4>{{ item.mem_addr }}</h4><br>
-                                    <h4>{{ item.geo_id }}</h4><br>
-                                    <h4>{{ item.province_id }}</h4><br>
-                                    <h4>{{ item.amphur_id }}</h4><br>
-                                    <h4>{{ item.district_id }}</h4>
+                                    <h4><b>เลขทะเบียนสมาชิก</b> {{ item.mem_no }}</h4><br>
+                                    <h4><b>ชื่อกลุ่มวิสาหกิจ</b> {{ item.mem_typeid }}</h4><br>
+                                    <h4><b>ชื่อสมาชิก</b> {{ item.mem_name}}</h4><br>
+                                    <h4><b>ชื่อเล่น</b> {{ item.mem_nickname}}</h4><br>
+                                    <h4><b>วันเกิด</b> {{ item.mem_birthday}}</h4><br>
+                                    <h4><b>อาชีพ</b> {{ item.mem_metier}}</h4><br>
+                                    <h4><b>รายได้</b> {{ item.mem_income}}</h4><br>
+                                    <h4><b>ที่อยู่</b> {{ item.mem_addr }}</h4><br>
+                                    <h4><b>ภูมิภาค</b> {{ item.geo_id }}</h4><br>
+                                    <h4><b>จังหวัด</b> {{ item.province_name }}</h4><br>
+                                    <h4><b>อำเภอ</b> {{ item.amphur_name }}</h4><br>
+                                    <h4><b>ตำบล</b> {{ item.district_name }}</h4>
                                 </ion-card-content>
                               </ion-card>
                               <ion-card>
                                 <ion-card-header>ข้อมูลช่องทางการติดต่อ</ion-card-header>
                                 
                                 <ion-card-content >
-                                    <h4>{{ item.mem_telhome }}</h4><br>
-                                    <h4>{{ item.mem_mobile }}</h4><br>
-                                    <h4>{{ item.mem_fax }}</h4><br>
-                                    <h4>{{ item.mem_email }}</h4><br>
-                                    <h4>{{ item.mem_line }}</h4><br>
-                                    <h4>{{ item.mem_fb }}</h4><br>
-                                    <h4>{{ item.mem_twitter }}</h4>
+                                    <h4><b>เบอร์บ้าน</b> {{ item.mem_telhome }}</h4><br>
+                                    <h4><b>มือถือ</b> {{ item.mem_mobile }}</h4><br>
+                                    <h4><b>เบอร์แฟก</b> {{ item.mem_fax }}</h4><br>
+                                    <h4><b>อีเมล์</b> {{ item.mem_email }}</h4><br>
+                                    <h4><b>ไลน์ไอดี</b> {{ item.mem_line }}</h4><br>
+                                    <h4><b>Facebook</b> {{ item.mem_fb }}</h4><br>
+                                    <h4><b>Twitter</b> {{ item.mem_twitter }}</h4>
                                     
                                 </ion-card-content>
                                   </ion-card>
@@ -60,13 +65,11 @@
                                         <ion-card-header>ข้อมูลเกี่ยวกับธุรกิจ</ion-card-header>
                                         
                                         <ion-card-content >
-                                            <h4>{{ item.mem_detail }}</h4>
+                                            <h4><b>รายละเอียดธุรกิจ</b> {{ item.mem_detail }}</h4>
                                             
                                         </ion-card-content>
                                           </ion-card>
-                      </ion-item>
   </ion-list>
 </form>
-<button  ion-button block outline (click)=update() color="light" >แก้ไขข้อมูล</button>
   
 </ion-content>

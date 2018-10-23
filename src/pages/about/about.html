@@ -1,18 +1,16 @@
 <ion-header>
   <ion-navbar color="taba">
-    <ion-title >
-      เกี่ยวกับ  
-    </ion-title>
+    <ion-title><ion-icon name = "person"> </ion-icon> เกี่ยวกับ</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="background" >
   <ion-list >
     <ion-item (click)="userpro()" detail-push>
-      <ion-icon  class="liststyle" name = "person"> ผู้ใช้</ion-icon>
+      <ion-icon  class="liststyle" name = "person"> ผู้ประกอบการ</ion-icon>
     </ion-item>
     <ion-item (click)="userdata()" detail-push>
-      <ion-icon  class="liststyle" name = "create"> ข้อมูลผู้ใช้</ion-icon>
+      <ion-icon  class="liststyle" name = "create"> ข้อมูลผู้ประกอบการ</ion-icon>
     </ion-item>
     <ion-item (click)="productdata()" detail-push>
       <ion-icon  class="liststyle" name = "leaf"> ข้อมูลสินค้า</ion-icon>

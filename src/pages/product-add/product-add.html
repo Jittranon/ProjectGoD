@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="taba">
+              <ion-title><ion-icon  color="light" name = "leaf"></ion-icon> เพิ่มสินค้า</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background">
+    <ion-card>
+      <img style="height: 300px;width: 100%;" src=""/>
+      <img style="height: 300px;width: 100%;" src=""/>
+      <img style="height: 300px;width: 100%;" src=""/>
+      <img style="height: 300px;width: 100%;" src=""/>
+    
+  </ion-card>
+  <ion-card>
+  <ion-card-header>ข้อมูลสินค้า</ion-card-header>
+  <ion-card-content>
+  <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="" ></ion-input></b>
+  <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="" ></ion-input></b>
+  <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="" ></ion-input></b>
+  <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="" ></ion-input></b>
+  </ion-card-content>
+  </ion-card>
+  <button  ion-button block outline (click)=update() color="light" >บันทึก</button>
+</ion-content>

@@ -26,28 +26,21 @@ page-login {
         margin-bottom: 10px;
         background: rgba(255,255,255,0.5);
         border: medium none;
+        border-radius: 5px; 
         .text-input, {
-            color: #fff!important;
-        }
-        input::-moz-placeholder {
-            color: #fff!important;
-        }
-        input::-moz-placeholder {
             color: #fff!important;
         }
         *::-webkit-input-placeholder {
             color: #fff!important;
         }
-        *:-ms-input-placeholder {
-            color: #fff!important;
-        }
-        *:-moz-input-placeholder {
-            color: #fff!important;
-        }
+        
     }
     .bottom {
         position: absolute;
         bottom: 0%;
+    }
+    .bottoml {
+        border-radius: 5px; 
     }
 
 }

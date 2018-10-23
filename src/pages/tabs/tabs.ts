@@ -19,7 +19,6 @@ export class TabsPage {
   } 
   ionViewWillEnter(){
       this.user=this.NavParams.data;
-  console.log(this.user);
   }
  
   

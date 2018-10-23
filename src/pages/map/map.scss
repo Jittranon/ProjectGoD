@@ -1,5 +1,49 @@
 page-map {
+
     #map {
         height: 100%;
       }
+      ion-input[type=text]{
+        color: #000000;
+        margin:0 center;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        height: 95%!important;
+    }
+    ion-select{
+        color: #000000;
+        margin:0 center;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        max-height: 95%!important;
+    }
+    .button{
+        color: #000000;;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        max-height: 75%!important;
+    }
+    ion-navbar{
+        width: 100vw;
+        height: 5vh;
+    }
+    ion-card {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 5px; 
+        height:auto;
+        width: 100px;
+        text-align: justify;
+    }
+    ion-card-title {
+        color: rgb(255, 255, 255)!important;
+        width: 100vw;
+    }
+    ion-card-content {
+        color: rgb(255, 255, 255)!important;
+        width: 100vw;
+    }
 }

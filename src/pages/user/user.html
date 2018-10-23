@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="taba" >
-    <ion-title><ion-icon  color="light" name = "person"> ผู้ใช้</ion-icon></ion-title>
+    <ion-title><ion-icon  color="light" name = "person"> ผู้ประกอบการ</ion-icon></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,15 +10,24 @@
 <ion-content class="background">
   <ion-list> 
             <ion-card *ngFor="let item of items" no-lines>
-              <img style="height: 300px" src="http://localhost:8080/smce/upload/{{ item.mem_logo }}"/>
+              <img style="height: 300px" src="http://localhost:80/smce/upload/{{ item.mem_logo }}"/>
                   <ion-card-content >
                   <ion-card-title>
                     {{ item.mem_name }}
                   </ion-card-title>
-                  <h4>{{ item.mem_detail }}</h4><br>
-                  <h4>{{ item.mem_addr }}</h4>
+                  <h4><b>ข้อมูลธุรกิจ</b> {{ item.mem_detail }}</h4><br>
+                  <h4><b>ที่อยู่ </b>{{ item.mem_addr }}</h4><br>
+                  <h4><b>ตำบล</b> {{ item.district_name }}</h4><br> 
+                  <h4><b>อำเภอ</b> {{ item.amphur_name }}</h4><br>
+                  <h4><b>จังหวัด</b> {{ item.province_name }}</h4><br>
+                  <h4><b>เบอร์บ้าน</b> {{ item.mem_telhome }}</h4><br>
+                  <h4><b>มือถือ</b> {{ item.mem_mobile }}</h4><br>
+                  <h4><b>เบอร์แฟก</b> {{ item.mem_fax }}</h4><br>
+                  <h4><b>อีเมล์</b> {{ item.mem_email }}</h4><br>
+                  <h4><b>ไลน์ไอดี</b> {{ item.mem_line }}</h4><br>
+                  <h4><b>Facebook</b> {{ item.mem_fb }}</h4><br>
+                  <h4><b>Twitter</b> {{ item.mem_twitter }}</h4>
                 </ion-card-content>
             </ion-card>
   </ion-list>
-  <button  ion-button block outline (click)=update() color="light" >แก้ไขข้อมูล</button>
 </ion-content>

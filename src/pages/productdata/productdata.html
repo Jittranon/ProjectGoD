@@ -2,7 +2,15 @@
 <ion-header>
 
   <ion-navbar color="taba">
-      <ion-title><ion-icon  color="light" name = "leaf"> ข้อมูลสินค้า</ion-icon></ion-title>
+      <ion-row>
+        <ion-col col-10>
+            <ion-title><ion-icon  color="light" name = "leaf"></ion-icon> ข้อมูลสินค้า</ion-title>
+        </ion-col>
+        <ion-col col-2 >
+            <ion-title (click)="add()"><ion-icon   color="light" name = "add"></ion-icon></ion-title>
+        </ion-col>
+      </ion-row>  
+      
   </ion-navbar>
 
 </ion-header>
@@ -11,11 +19,10 @@
     <ion-list>
         <ion-card *ngFor="let item of items"  (click)=viewDetail(item) no-lines>
             <ion-slides pager style="height: 300px;">
-  
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:8080/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:8080/smce/upload/{{ item.gds_pic2 }}"/></ion-slide>
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:8080/smce/upload/{{ item.gds_pic3 }}"/></ion-slide>
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:8080/smce/upload/{{ item.gds_pic4 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic2 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic3 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic4 }}"/></ion-slide>
               
               </ion-slides>
           <ion-card-content >

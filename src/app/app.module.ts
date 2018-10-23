@@ -17,11 +17,13 @@ import { UserUpdatePage } from '../pages/user-update/user-update';
 import { UserDataUpdatePage } from '../pages/user-data-update/user-data-update';
 import { ProductUpdatePage } from '../pages/product-update/product-update';
 import { TabsalluserPage } from '../pages/tabsalluser/tabsalluser';
+import { ProductAddPage } from '../pages/product-add/product-add';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
+import { VideoPlayer } from '@ionic-native/video-player';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { Camera } from '@ionic-native/camera';
     UserUpdatePage,
     UserDataUpdatePage,
     ProductUpdatePage,
-    TabsalluserPage
+    TabsalluserPage,
+    ProductAddPage
   ],
   imports: [
     BrowserModule,
@@ -65,12 +68,14 @@ import { Camera } from '@ionic-native/camera';
     UserUpdatePage,
     UserDataUpdatePage,
     ProductUpdatePage,
-    TabsalluserPage
+    TabsalluserPage,
+    ProductAddPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
+    VideoPlayer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
   ]

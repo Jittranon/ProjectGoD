@@ -1,9 +1,9 @@
-page-product {
+page-product-add {
     form{
         width:100%;
         margin:0 auto;
     }
-    ion-search { 
+    .search { 
         padding:6px 15px 6px 30px;
         width: 80%;
         margin:3px; 
@@ -13,33 +13,17 @@ page-product {
         -moz-border-radius:15px; 
         -webkit-border-radius:15px; 
     }
-    ion-input[type=text]{
-        color: #000000;
-        margin:0 center;
+    input[type=text]{
+        color:#000000;
         background: rgba(255, 255, 255, 1);
         border-radius: 5px; 
-        max-width: 100%!important;
-        height: 95%!important;
+        height: 30px;
     }
-    ion-select{
-        color: #000000;
-        margin:0 center;
-        background: rgba(255, 255, 255, 1);
+    input[type=number]{
+        color:#000000;
+        background: rgb(255, 255, 255);
         border-radius: 5px; 
-        max-width: 100%!important;
-        max-height: 95%!important;
-    }
-    .button{
-        color: #000000;
-        margin:0 center;
-        background: rgba(255, 255, 255, 1);
-        border-radius: 5px; 
-        max-width: 100%!important;
-        max-height: 75%!important;
-    }
-    ion-navbar{
-        width: 100vw;
-        height: 5vh;
+        height: 30px;
     }
     ion-card.card {
         box-shadow: none;
@@ -49,7 +33,7 @@ page-product {
         margin-left: 2px;
         margin-right: 2px;
         margin-bottom: 2px;
-        height: 50%;
+        height: auto;
         width: 99vw;
         text-align: justify;
     }

@@ -1,7 +1,20 @@
 <ion-header>
 
   <ion-navbar color="taba">
-      <ion-searchbar placeholder="ค้นหา"></ion-searchbar>
+      <ion-row>
+          <ion-col col-5>
+                <ion-input color="light" type="text" placeholder="คำค้นหา" [(ngModel)]="searchw" ></ion-input>
+          </ion-col>
+          <ion-col col-5>
+                <ion-select  stacked [(ngModel)]="searchd" placeholder="เลือกประเภทสินค้า">
+                        <ion-option value="0" selected>ทั้งหมด</ion-option>
+                    <ion-option *ngFor="let type of type" value="{{ type.t_code }}">{{ type.t_name }}</ion-option>
+                </ion-select>
+          </ion-col>
+          <ion-col col-2>
+              <button class="button" ion-button  (click)=loaddata(searchd) color="light"  >ค้นหา</button>
+          </ion-col>
+      </ion-row>
   </ion-navbar>
 
 </ion-header>

@@ -12,9 +12,11 @@ import { ProductDetailPage } from '../product-detail/product-detail';
 })
 export class ProductPage {
   public items : any = [];
-  public baseURI :string = "http://localhost:8080/ionicAPI/";
+  public baseURI :string = "http://localhost:80/ionicAPI/";
   public user: any;
   public searchd:any;
+  public searchw:any;
+  public type: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -24,10 +26,23 @@ export class ProductPage {
   ionViewWillEnter(){
     this.user=this.navParams.data;
     this.load();
+    this.typeproduct();
+  }
+  typeproduct(){
+    let   body     : string   = "key=selecttype",
+          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          headers  : any      = new Headers({ 'Content-Type': type}),
+          options  : any      = new RequestOptions({ headers: headers }),
+          url      : any      = this.baseURI + "selectproduct.php";
+    this.http.post(url,body,options)
+    .map(res => res.json())
+    .subscribe(data => {
+    this.type = data;
+  });
   }
   load(){
     let   body     : string   = "key=select",
-          type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
+          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectproduct.php";
@@ -41,12 +56,11 @@ export class ProductPage {
     this.navCtrl.push(ProductDetailPage,item);
   }
   search(){
-    this.loaddata(this.searchd);
-    console.log(this.searchd);
+    this.loaddata();
   }
-  loaddata(searchd){
-    let   body     : string   = "key=selectproduct&searchd="+searchd,
-          type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
+  loaddata(){
+    let   body     : string   = "key=selectproduct&searchd="+this.searchd,
+          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectproduct.php";

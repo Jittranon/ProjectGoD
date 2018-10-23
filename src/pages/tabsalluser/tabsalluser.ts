@@ -9,6 +9,7 @@ import { Http } from '@angular/http';
   templateUrl: 'tabsalluser.html',
 })
 export class TabsalluserPage {
+  public user: any;
 
   constructor(public navCtrl: NavController,
     public NavParams:NavParams,
@@ -16,7 +17,7 @@ export class TabsalluserPage {
 
   } 
   ionViewWillEnter(){
-
+    this.user=this.NavParams.data;
   }
  
   

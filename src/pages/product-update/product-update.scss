@@ -14,7 +14,16 @@ page-product-update {
         -webkit-border-radius:15px; 
     }
     input[type=text]{
-        color:#bcbcbc;
+        color:#000000;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        height: 30px;
+    }
+    input[type=number]{
+        color:#000000;
+        background: rgb(255, 255, 255);
+        border-radius: 5px; 
+        height: 30px;
     }
     ion-card.card {
         box-shadow: none;
@@ -24,8 +33,8 @@ page-product-update {
         margin-left: 2px;
         margin-right: 2px;
         margin-bottom: 2px;
-        height: 50%;
-        width: 100vw;
+        height: auto;
+        width: 99vw;
         text-align: justify;
     }
     ion-card.card-title{

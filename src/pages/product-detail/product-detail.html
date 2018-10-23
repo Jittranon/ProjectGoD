@@ -9,12 +9,17 @@
 
 <ion-content class="background">
     <ion-card>
-        <ion-slides pager style="height: 300px;">
+          <ion-slides pager style="height: 300px;">
+            <ion-slide ><video style="height: 300px;width: 100%;" controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+              <source src="http://localhost:80/smce/upload/{{ items.gds_vidio }}">
+            </video>
+             
+           </ion-slide>
 
-            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic1 }}"/></ion-slide>
-            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic2 }}"/></ion-slide>
-            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic3 }}"/></ion-slide>
-            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:8080/smce/upload/{{ items.gds_pic4 }}"/></ion-slide>
+            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic1 }}"/></ion-slide>
+            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic2 }}"/></ion-slide>
+            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic3 }}"/></ion-slide>
+            <ion-slide ><img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic4 }}"/></ion-slide>
           
           </ion-slides>
     </ion-card>
@@ -24,9 +29,16 @@
         <b>ชื่อสินค้า</b> {{ items.gds_name }}<br>
         <b>รายละเอียดสินค้า</b> {{ items.gds_detail }}<br>
         <b>คุณสมบัติสินค้า</b> {{ items.gds_prob }}<br>
-        <b>ราคาสินค้า</b> {{ items.gds_price }}<b> บาท</b>
-
-      
+        <b>ราคาสินค้า</b> {{ items.gds_price }}<b> บาท</b> 
       </ion-card-content>
     </ion-card>
+    <ion-fab right bottom>
+        <button ion-fab color="dark"><ion-icon name="arrow-dropleft"></ion-icon></button>
+        <ion-fab-list side="left">
+          <button (click)="map()" ion-fab><ion-icon name="navigate"></ion-icon></button>
+          <button (click)="web()"ion-fab><ion-icon name="link"></ion-icon></button>
+          <button (click)="person()"ion-fab><ion-icon name="person"></ion-icon></button>
+
+        </ion-fab-list>
+      </ion-fab>
 </ion-content>

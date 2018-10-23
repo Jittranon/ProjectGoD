@@ -16,7 +16,7 @@ export class LoginPage {
   public user:any;
   public password :any;
   public result:any;
-  public baseURI :string = "http://localhost:8080/ionicAPI/";
+  public baseURI :string = "http://localhost:80/ionicAPI/";
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams ,
@@ -56,7 +56,7 @@ export class LoginPage {
     
   }
   loginAll(){
-    this.navCtrl.push(TabsalluserPage );
+    this.navCtrl.push(TabsalluserPage,0 );
   }
 
 }

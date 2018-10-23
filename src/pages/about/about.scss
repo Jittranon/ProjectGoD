@@ -1,17 +1,13 @@
 page-about {
     .liststyle {
         margin-bottom: 10px;
-        background: rgba(255,255,255,0);
+        background: rgba(255, 255, 255, 0);
         border: medium none;
         color: #fff!important;
        
     }
     ion-item.item {
         box-shadow: none;
-        background: rgba(0, 0, 0, 0.2);
-    }
-    ion-icon.icon{
-        height: 20;
-        width: 20;
+        background: rgba(0, 0, 0, 0.3);
     }
 }

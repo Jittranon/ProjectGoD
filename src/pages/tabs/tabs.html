@@ -1,6 +1,6 @@
 <ion-tabs tabsHighlight="true" color="taba" *ngFor="let data of NavParams.data" >
   <ion-tab [root]="tab1Root" tabTitle="หน้าแรก" tabIcon="home" [rootParams]="data.emp_id"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="แผนที่" tabIcon="map" [rootParams]="data.emp_id"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="แผนที่" tabIcon="map" [rootParams]="0"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="สินค้า" tabIcon="leaf" [rootParams]="data.emp_id"></ion-tab>
   <ion-tab [root]="tab4Root" tabTitle="เกี่ยวกับ" tabIcon="contact" [rootParams]="data.emp_id"></ion-tab>
 </ion-tabs>

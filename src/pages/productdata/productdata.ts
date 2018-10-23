@@ -3,6 +3,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
+import { ProductAddPage } from '../product-add/product-add';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/map';
 export class ProductdataPage {
   public items : any = [];
   public userCode: any;
-  public baseURI :string = "http://localhost:8080/ionicAPI/";
+  public baseURI :string = "http://localhost:80/ionicAPI/";
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -40,6 +41,9 @@ export class ProductdataPage {
   }
   viewDetail(item){
     this.navCtrl.push(ProductUpdatePage,item);
+  }
+  add(){
+    this.navCtrl.push(ProductAddPage);
   }
 
 }

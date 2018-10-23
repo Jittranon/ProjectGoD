@@ -1,4 +1,16 @@
 page-user-data-update {
+    input[type=text]{
+        color:#000000;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        height: 30px;
+    }
+    input[type=number]{
+        color:#000000;
+        background: rgb(255, 255, 255);
+        border-radius: 5px; 
+        height: 30px;
+    }
     form{
         width:100%;
         margin:0 auto;
@@ -8,13 +20,17 @@ page-user-data-update {
         width: 80%;
         margin:3px; 
     }
+    .select{
+        color: #000000;;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        height: 95%!important;
+    }
     .rounded { 
         border-radius:15px; 
         -moz-border-radius:15px; 
         -webkit-border-radius:15px; 
-    }
-    input[type=text]{
-        color:#bcbcbc;
     }
     ion-card.card {
         box-shadow: none;
@@ -24,8 +40,8 @@ page-user-data-update {
         margin-left: 2px;
         margin-right: 2px;
         margin-bottom: 2px;
-        height: 50%;
-        width: 100vw;
+        height: auto;
+        width: 99vw;
     }
     ion-card.card-title{
         width: 100vw;
