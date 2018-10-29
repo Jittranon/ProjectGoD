@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -19,6 +19,9 @@ export class UserDataUpdatePage {
   public districtall: any;
   public amphur: any;
   public district:any;
+  public aa:any;
+  public bb:any;
+  public cc:any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -95,6 +98,9 @@ export class UserDataUpdatePage {
     });
   }
 update(){
+  alert(this.aa);
+  alert(this.bb);
+  alert(this.cc);
   this.navCtrl.pop();
 }
 }

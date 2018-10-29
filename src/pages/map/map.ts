@@ -3,6 +3,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductDetailPage } from '../product-detail/product-detail';
+import { Geolocation } from '@ionic-native/geolocation';
 
 declare var google: any;
 @IonicPage()
@@ -24,7 +25,8 @@ export class MapPage {
   public searchw:any;
   public type: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,public geolocation: Geolocation) {
   }
 
   ionViewDidLoad() {
@@ -37,7 +39,6 @@ export class MapPage {
     }else{
       this.load();
     }
-   
   }
   typeproduct(){
     let   body     : string   = "key=selecttype",
@@ -62,21 +63,25 @@ export class MapPage {
     .subscribe(data => {
       this.lgds = data;
       console.log(this.lgds);
-
-      this.map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: {lat:this.lgds[0].lgds_lat,lng: this.lgds[0].lgds_lng},
-        zoom:10,
-        mapTypeid:'roadmap'
-    });
-
-    for(var i = 0; i < this.lgds.length; i++ ){
-      this.marker = new google.maps.Marker({
-        position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-        map: this.map
+      this.geolocation.getCurrentPosition().then((position) => {
+        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        alert(latLng);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, {
+          center: latLng,
+          zoom:8,
+          mapTypeid:'roadmap'
       });
-        let content = '<ion-card (click)=viewDetail()> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
-        this.addInfoWindow(this.marker, content);
-      }
+        for(var i = 0; i < this.lgds.length; i++ ){
+          this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map
+          });
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          this.addInfoWindow(this.marker, content,this.lgds[i]);
+        }
+       }).catch((error) => {
+         console.log('Error getting location', error);
+       });
     });
   }
   
@@ -91,21 +96,24 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-
+      this.geolocation.getCurrentPosition().then((position) => {
+        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-            center: {lat:this.lgds[0].lgds_lat,lng: this.lgds[0].lgds_lng},
-            zoom:10,
-            mapTypeid:'roadmap'
-        });
-
-      for(var i = 0; i < this.lgds.length; i++ ){
-        this.marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-          map: this.map
-        });
-        let content = '<ion-card (click)=viewDetail()> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
-        this.addInfoWindow(this.marker, content);
-      }
+          center: latLng,
+          zoom:8,
+          mapTypeid:'roadmap'
+      });
+        for(var i = 0; i < this.lgds.length; i++ ){
+          this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map
+          });
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          this.addInfoWindow(this.marker, content,this.lgds[i]);
+        }
+       }).catch((error) => {
+         console.log('Error getting location', error);
+       });
     });
   }
   loadall(){
@@ -118,35 +126,36 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-
+      this.geolocation.getCurrentPosition().then((position) => {
+        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-            center: {lat:this.lgds[0].lgds_lat,lng: this.lgds[0].lgds_lng},
-            zoom:10,
-            mapTypeid:'roadmap'
-        });
-
-      for(var i = 0; i < this.lgds.length; i++ ){
-        this.marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-          map: this.map
-        });
-        let content = '<ion-card (click)=viewDetail()> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
-        this.addInfoWindow(this.marker, content);
-      }
+          center: latLng,
+          zoom:9,
+          mapTypeid:'roadmap'
+      });
+        for(var i = 0; i < this.lgds.length; i++ ){
+          this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map
+          });
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          this.addInfoWindow(this.marker, content,this.lgds[i]);
+        }
+       }).catch((error) => {
+         console.log('Error getting location', error);
+       });
     });
   }
-  addInfoWindow(marker, content) {
+  addInfoWindow(marker, content,lgds) {
     let infoWindow = new google.maps.InfoWindow({
       content: content,
     });
-      infoWindow.open(this.map, marker)
+      //infoWindow.open(this.map, marker);
       google.maps.event.addListener(marker, 'click', () =>{
-        infoWindow.open(this.map, marker)
+        infoWindow.open(this.map, marker);
+        //this.navCtrl.push(ProductDetailPage,lgds);
       })
   }
-  viewDetail(){
-    this.navCtrl.push(ProductDetailPage);
-  }
-  }
+}
 
 

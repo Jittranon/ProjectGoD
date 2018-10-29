@@ -14,9 +14,9 @@
                       <ion-card-header>ข้อมูลกลุ่ม</ion-card-header>
                       
                           <ion-card-content >
-                              <h4><b>กลุ่มธุรกิจ</b><ion-input type="text" placeholder="กลุ่มธุรกิจ" value="{{ item.g_code }}" ></ion-input></h4>
-                              <h4><b>ประเภทธุรกิจ</b> <ion-input type="text" placeholder="ชื่อสินค้า" value="{{ item.t_code }}" ></ion-input></h4>
-                              <h4><b>ชื่อประธานกลุ่ม</b><ion-input type="text" placeholder="ชื่อประธานกลุ่ม" value="{{ item.boss_name }}" ></ion-input></h4>
+                              <h4><b>กลุ่มธุรกิจ</b><ion-input  type="text" placeholder="กลุ่มธุรกิจ" value="{{ item.g_code }}" ></ion-input></h4>
+                              <h4><b>ประเภทธุรกิจ</b> <ion-input  type="text" placeholder="ชื่อสินค้า" value="{{ item.t_code }}" ></ion-input></h4>
+                              <h4><b>ชื่อประธานกลุ่ม</b><ion-input  type="text" placeholder="ชื่อประธานกลุ่ม" value="{{ item.boss_name }}" ></ion-input></h4>
                               <h4><b>หมายเลขโทรศัพท์</b><ion-input type="text" placeholder="หมายเลขโทรศัพท์" value="{{ item.boss_tel }}" ></ion-input></h4>
                         </ion-card-content>
                         
@@ -39,7 +39,7 @@
                                   <h4><b>จังหวัด</b></h4>
                                   <ion-select (click)=load1(province) stacked [(ngModel)]="province" placeholder="{{item.province_name }}">
                                       <ion-option value="{{ item.province_id }}"selected>ปัจจุบัน {{item.province_name }}</ion-option>
-                                      <ion-option *ngFor="let province of provinceall" value="{{ province.province_id }}">{{ province.province_name }}</ion-option>
+                                      <ion-option *ngFor="let province of provinceall" value="{{ province.province_id }}" >{{ province.province_name }}</ion-option>
                                   </ion-select>
                                   <h4><b>อำเภอ</b></h4>
                                   <ion-select (click)=load1(province) (click)=load2(amphur) stacked [(ngModel)]="amphur" placeholder="{{item.amphur_name }}">
