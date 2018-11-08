@@ -28,7 +28,7 @@ export class ProductdataPage {
     this.load();
   }
   load(){
-    let   body     : string   = "key=selectperson&userCode="+this.userCode,
+    let   body     : string   = "key=selectproductperson&userCode="+this.userCode,
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),

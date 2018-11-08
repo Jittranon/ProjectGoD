@@ -34,12 +34,24 @@ export class MapPage {
     this.gds=this.navParams.data;
     console.log(this.gds);
     this. typeproduct();
-    if(this.gds<1){
-       this.loadall();
+    if(this.gds<1 &&this.gds >-1){
+      this.loadall();
+    }else if(this.gds<0){
+      this.addlocation();
     }else{
       this.load();
     }
   }
+  addlocation(){
+    this.geolocation.getCurrentPosition().then((position) => {
+      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      this.map = new google.maps.Map(this.mapElement.nativeElement, {
+        center: latLng,
+        zoom:15,
+        mapTypeid:'roadmap'
+    });
+  });
+}
   typeproduct(){
     let   body     : string   = "key=selecttype",
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
@@ -65,7 +77,6 @@ export class MapPage {
       console.log(this.lgds);
       this.geolocation.getCurrentPosition().then((position) => {
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        alert(latLng);
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           center: latLng,
           zoom:8,

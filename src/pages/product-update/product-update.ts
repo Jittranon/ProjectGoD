@@ -12,7 +12,7 @@ export class ProductUpdatePage {
   public baseURI :string = "http://localhost:80/ionicAPI/";
   public gds_name:any;
   public gds_detail:any;
-  public gda_porg:any;
+  public gda_prob:any;
   public gds_price:any;
   public gds_id:any;
 
@@ -26,22 +26,19 @@ export class ProductUpdatePage {
     console.log('ionViewDidLoad ProductUpdatePage');
     this.items=this.navParams.data;
   }
-  update(){
-    alert(this.gds_name);
-    alert(this.gds_detail);
-    alert(this.gda_porg);
-    alert(this.gds_price);
-    let   body     : string   = "key=updateproduct&gds_name="+this.gds_name+"&gds_detail="+this.gds_detail+"&gda_porg="+this.gda_porg+"&gds_price="+this.gds_price+"&gds_id="+this.gds_id,
+  update(gds_id,gds_name,gds_detail,gda_prob,gds_price){
+    /*alert(gds_name);
+    alert(gds_detail);
+    alert(gda_prob);
+    alert(gds_price);*/
+    let   body     : string   = "key=updateproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gda_prob="+gda_prob+"&gds_price="+gds_price+"&gds_id="+gds_id,
           type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
-          url      : any      = this.baseURI + "selectproduct.php";
+          url      : any      = this.baseURI + "addandupdate.php";
     this.http.post(url,body,options)
-    .map(res => res.json())
-    .subscribe(data => {
-      this.items = data;
-    });
-    this.navCtrl.pop();
+    alert("ll");
+    //this.navCtrl.pop();
   }
   
 }
