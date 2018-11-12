@@ -13,7 +13,7 @@ import { ProductAddPage } from '../product-add/product-add';
 export class ProductdataPage {
   public items : any = [];
   public userCode: any;
-  public baseURI :string = "http://localhost:80/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -45,5 +45,4 @@ export class ProductdataPage {
   add(){
     this.navCtrl.push(ProductAddPage);
   }
-
 }

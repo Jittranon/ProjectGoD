@@ -15,14 +15,17 @@
 
 </ion-header>
 
-<ion-content class="background">
-    <ion-list>
-        <ion-card *ngFor="let item of items"  (click)=viewDetail(item) no-lines>
+<ion-content class="background"> 
+            <ion-fab top right>
+                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+            </ion-fab>
+    <ion-list *ngFor="let item of items">
+        <ion-card   (click)=viewDetail(item) no-lines>
             <ion-slides pager style="height: 300px;">
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic2 }}"/></ion-slide>
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic3 }}"/></ion-slide>
-                <ion-slide ><img style="width: 100vw;height: 300px" src="http://localhost:80/smce/upload/{{ item.gds_pic4 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic2 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic3 }}"/></ion-slide>
+                <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic4 }}"/></ion-slide>
               
               </ion-slides>
           <ion-card-content >

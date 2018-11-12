@@ -1,30 +1,30 @@
 
 <ion-header >
 
-  <ion-navbar color="taba">
-    <ion-title>{{ items.gds_name }}</ion-title>
+  <ion-navbar color="taba" >
+    <ion-title *ngFor="let item of items">{{ item.gds_name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content class="background">
+<ion-content class="background" *ngFor="let item of items">
   <ion-card>
-        <img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic1 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic2 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic3 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://localhost:80/smce/upload/{{ items.gds_pic4 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic1 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic2 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic3 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic4 }}"/>
       
 </ion-card>
 <ion-card>
   <ion-card-header>ข้อมูลสินค้า</ion-card-header>
   <ion-card-content>
-   <b hidden>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="{{ items.gds_name }}" [(ngModel)]="gds_id"></ion-input></b>
-   <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="{{ items.gds_name }}" [(ngModel)]="gds_name"></ion-input></b>
-   <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="{{ items.gds_detail }}" [(ngModel)]="gds_detail"></ion-input></b>
-   <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="{{ items.gds_prob }}" [(ngModel)]="gda_prob"></ion-input></b>
-   <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="{{ items.gds_price }}" [(ngModel)]="gds_price" ></ion-input></b>
+   <b hidden><ion-input type="number" value="{{ item.gds_id }}" [(ngModel)]="gds_id" ></ion-input></b>
+   <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="{{ item.gds_name }}" [(ngModel)]="gds_name"></ion-input></b>
+   <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="{{ item.gds_detail }}" [(ngModel)]="gds_detail"></ion-input></b>
+   <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="{{ item.gds_prob }}" [(ngModel)]="gds_prob"></ion-input></b>
+   <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="{{ item.gds_price }}" [(ngModel)]="gds_price" ></ion-input></b>
   </ion-card-content>
 </ion-card>
-<button  ion-button block outline (click)=update(gds_id,gds_name,gds_detail,gda_prob,gds_price) color="light" >บันทึก</button>
+<button  ion-button block outline (click)=update(gds_id,gds_name,gds_detail,gds_prob,gds_price) color="light" >บันทึก</button>
 </ion-content>

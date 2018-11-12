@@ -8,24 +8,15 @@
   <ion-list>
   <ion-card *ngFor="let item of items"  >
       <ion-slides pager style="height:auto" >
-              <ion-slide ><img style="width: 100nw; height: auto;" src="http://localhost:80/smce/upload/{{ item.news_image }}"/></ion-slide>
-              <ion-slide ><img style="width: 100nw; height: auto;" src="http://localhost:80/smce/upload/{{ item.news_image1 }}"/></ion-slide>
-              <ion-slide ><img style="width: 100nw; height: auto;" src="http://localhost:80/smce/upload/{{ item.news_image2 }}"/></ion-slide>
-              <ion-slide ><img style="width: 100nw; height: auto;" src="http://localhost:80/smce/upload/{{ item.news_image3 }}"/></ion-slide>
-              <ion-slide ><img style="width: 100nw; height: auto;" src="http://localhost:80/smce/upload/{{ item.news_image4 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: auto;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.news_image }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: auto;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.news_image1 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: auto;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.news_image2 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: auto;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.news_image3 }}"/></ion-slide>
+              <ion-slide ><img style="width: 100nw; height: auto;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.news_image4 }}"/></ion-slide>
       </ion-slides>
       <ion-card-content >
            {{ item.news_detail }}      
       </ion-card-content >
-  </ion-card>
-  <ion-card hidden >
-      <img src="{{ image_base64 }}"/>
-      <ion-card-content>
-         <button  ion-button block outline (click)=opencamera() color="light" >ถ่ายรูป</button>
-         <button  ion-button block outline (click)=updatepic() color="light" >อัพโหลด</button>
-         <button  ion-button block outline (click)=web() color="light" >อัพโหลด</button>
-      </ion-card-content>
-    </ion-card>
- 
+  </ion-card> 
 </ion-list>
 </ion-content>

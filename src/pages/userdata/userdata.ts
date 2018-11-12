@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class UserdataPage {
   public items : any = [];
   public userCode: any ;
-  public baseURI :string = "http://localhost:80/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,

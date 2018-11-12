@@ -12,8 +12,7 @@ export class HomePage {
   public items : any = [];
   public user :any;
   public image_base64:any;
-  public baseURI :string = "http://localhost:80/ionicAPI/";
-  public image_base64u: any;
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
 
   constructor(public navCtrl: NavController,
               public navParams:NavParams,
@@ -26,45 +25,10 @@ export class HomePage {
   }
   load(){
     this.image_base64='assets/imgs/logo.png';
-    this.http.get('http://localhost:80/ionicAPI/selectnews.php')
+    this.http.get('http://esmce.nrru.ac.th/smce/mobile/selectnews.php')
     .map(res => res.json())
     .subscribe(data => {
       this.items = data;
     });
-  }
-  opencamera(){
-    const options: CameraOptions = {
-      targetHeight: 1000,
-      targetWidth: 1000,
-      quality: 100,
-      correctOrientation: true,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-  }
-  this.camera.getPicture(options).then((imageData) => {
-    // imageData is either a base64 encoded string or a file URI
-    // If it's base64 (DATA_URL):
-    let base64Image = 'data:image/jpeg;base64,' + imageData;
-    this.image_base64 =imageData;
-    this.image_base64u =imageData;
-    //this.image_base64 =base64Image;
-   }, (err) => {
-     alert("error");
-    // Handle error
-   });
-  }
-  updatepic(){
-    var packData = {
-      image_base64:this.image_base64u
-    }
-    let headers = new Headers({'Content-Type':'application/json'});
-    let options = new RequestOptions({headers:headers});
-    let body = packData;
-    this.http.post('http://localhost:80/ionicAPI/uploadimg.php',body,options);
-
-  }
-  web(){
-    window.open("http://google.com",'_system', 'location=yes');
   }
 }

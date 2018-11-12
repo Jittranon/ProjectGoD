@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductDetailPage } from '../product-detail/product-detail';
 import { Geolocation } from '@ionic-native/geolocation';
+import { UserPage } from '../user/user';
 
 declare var google: any;
 @IonicPage()
@@ -18,15 +19,23 @@ export class MapPage {
   public marker:any;
   public lgds: any;
   public lgds2: any;
-  public baseURI :string = "http://localhost:80/ionicAPI/";
+  public baseURI :string = "http://192.168.0.112/ionicAPI/";
   public i:any=0;
   public items: any;
   public searchd:any;
   public searchw:any;
   public type: any;
+  public gdsid :any;
+  public personid :any;
+  public latlngnow :any;
+  public latlng :any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,public geolocation: Geolocation) {
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public http:Http,
+              public geolocation: Geolocation) {
   }
 
   ionViewDidLoad() {
@@ -77,6 +86,7 @@ export class MapPage {
       console.log(this.lgds);
       this.geolocation.getCurrentPosition().then((position) => {
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        this.latlngnow = latLng;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           center: latLng,
           zoom:8,
@@ -87,7 +97,7 @@ export class MapPage {
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://192.168.0.112/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
        }).catch((error) => {
@@ -109,6 +119,7 @@ export class MapPage {
       this.lgds = data;
       this.geolocation.getCurrentPosition().then((position) => {
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        this.latlngnow = latLng;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           center: latLng,
           zoom:8,
@@ -119,7 +130,7 @@ export class MapPage {
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://192.168.0.112/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
        }).catch((error) => {
@@ -139,17 +150,112 @@ export class MapPage {
       this.lgds = data;
       this.geolocation.getCurrentPosition().then((position) => {
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        this.latlngnow = latLng;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           center: latLng,
           zoom:9,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
-          this.marker = new google.maps.Marker({
+          if(this.lgds[i].t_code==1){
+            this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://localhost:80/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          }else if (this.lgds[i].t_code==2){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            });
+          }else if (this.lgds[i].t_code==3){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            });
+          }else if (this.lgds[i].t_code==4){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            });
+          }else if (this.lgds[i].t_code==5){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+            });
+          }else if (this.lgds[i].t_code==6){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'
+            });
+          }else if (this.lgds[i].t_code==7){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+            });
+          }else if (this.lgds[i].t_code==8){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+            });
+          }else if (this.lgds[i].t_code==9){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+            });
+          }else if (this.lgds[i].t_code==10){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+            });
+          }else if (this.lgds[i].t_code==11){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+            });
+          }else if (this.lgds[i].t_code==12){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+            });
+          }else if (this.lgds[i].t_code==13){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+            });
+          }else if (this.lgds[i].t_code==14){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+            });
+          }else if (this.lgds[i].t_code==15){
+            this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+            });
+          }else{
+            this.marker = new google.maps.Marker({
+              position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+              map: this.map,
+              icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+              });
+          }
+          
+          let content = '<ion-card><ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://192.168.0.112/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
        }).catch((error) => {
@@ -164,8 +270,36 @@ export class MapPage {
       //infoWindow.open(this.map, marker);
       google.maps.event.addListener(marker, 'click', () =>{
         infoWindow.open(this.map, marker);
-        //this.navCtrl.push(ProductDetailPage,lgds);
+        this.gdsid = lgds;
+        this.personid = lgds.m_code;
+        this.latlng = new google.maps.LatLng(lgds.lgds_lat, lgds.lgds_lng);
       })
+  }
+  route(){
+      let directionsService = new google.maps.DirectionsService;
+      let directionsDisplay = new google.maps.DirectionsRenderer;
+
+      directionsDisplay.setMap(this.map);
+
+      directionsService.route({
+          origin: this.latlngnow,
+          destination: this.latlng,
+          travelMode: google.maps.TravelMode['DRIVING']
+      }, (res, status) => {
+
+          if(status == google.maps.DirectionsStatus.OK){
+              directionsDisplay.setDirections(res);
+          } else {
+              console.warn(status);
+          }
+
+      });
+  }
+  person(){
+    this.navCtrl.push(UserPage ,this.personid);
+  }
+  goods(){
+    this.navCtrl.push(ProductDetailPage ,this.gdsid);
   }
 }
 

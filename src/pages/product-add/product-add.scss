@@ -1,4 +1,12 @@
 page-product-add {
+    ion-select{
+        color: #000000;
+        margin:0 center;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 5px; 
+        max-width: 100%!important;
+        max-height: 95%!important;
+    }
     form{
         width:100%;
         margin:0 auto;

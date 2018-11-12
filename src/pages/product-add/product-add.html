@@ -8,26 +8,35 @@
 
 
 <ion-content class="background">
-    <ion-card>
-      <img src="{{ image_base64 }}"/>
-      <button  ion-button block outline (click)=opencamera() color="light" >ถ่ายรูป</button>
-      <img src="{{ image_base64 }}"/>
-      <button  ion-button block outline (click)=opencamera() color="light" >ถ่ายรูป</button>
-      <img src="{{ image_base64 }}"/>
-      <button  ion-button block outline (click)=opencamera() color="light" >ถ่ายรูป</button>
-      <img src="{{ image_base64 }}"/>
-      <button  ion-button block outline (click)=opencamera() color="light" >ถ่ายรูป</button>
-    
-  </ion-card>
+   
   <ion-card>
   <ion-card-header>ข้อมูลสินค้า</ion-card-header>
   <ion-card-content>
-  <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="" [(ngModel)]="gds_name" ></ion-input></b>
-  <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="" [(ngModel)]="gds_detail" ></ion-input></b>
-  <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="" [(ngModel)]="gda_prob" ></ion-input></b>
-  <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="" [(ngModel)]="gds_price" ></ion-input></b>
-  <button  ion-button block outline (click)=map() color="light" >ปักหมุดพิกัด</button>
+  <b>ประเภทสินค้า </b><br>
+  <ion-select  stacked [(ngModel)]="searchd" placeholder="เลือกประเภทสินค้า">
+    <ion-option value="0" selected>ทั้งหมด</ion-option>
+  <ion-option *ngFor="let type of type" value="{{ type.t_code }}">{{ type.t_name }}</ion-option>
+  </ion-select>
+  <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="" [(ngModel)]="gds_name" ></ion-input></b><br>
+  
+  <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="" [(ngModel)]="gds_detail" ></ion-input></b><br>
+  <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="" [(ngModel)]="gda_prob" ></ion-input></b><br>
+  <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="" [(ngModel)]="gds_price" ></ion-input></b><br>
+  <button  ion-button block outline (click)=map() color="light" >ปักหมุดพิกัด</button><br>
   </ion-card-content>
+  </ion-card> 
+  <ion-card>
+      <ion-card-content>
+        <b>ภาพด้านหน้า</b><br>
+        <img (click)=takePhoto1() src="{{ myphoto1 }}"/>
+        <b>ภาพด้านซ้าย</b><br>
+        <img (click)=takePhoto2() src="{{ myphoto2 }}"/>
+        <b>ภาพด้านขวา</b><br>
+        <img (click)=takePhoto3() src="{{ myphoto3 }}"/>
+        <b>ภาพด้านหลัง</b><br>
+        <img (click)=takePhoto4() src="{{ myphoto4 }}"/>
+      </ion-card-content>
   </ion-card>
+  <button  ion-button block outline (click)=uploadImage() color="light" >บันทึกภาพ</button>
   <button  ion-button block outline (click)=update(gds_name,gds_detail,gda_prob,gds_price) color="light" >บันทึก</button>
 </ion-content>

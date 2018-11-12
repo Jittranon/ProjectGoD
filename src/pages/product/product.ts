@@ -12,7 +12,7 @@ import { ProductDetailPage } from '../product-detail/product-detail';
 })
 export class ProductPage {
   public items : any = [];
-  public baseURI :string = "http://localhost:80/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public user: any;
   public searchd:any;
   public searchw:any;
@@ -59,11 +59,11 @@ export class ProductPage {
     this.loaddata();
   }
   loaddata(){
-    let   body     : string   = "key=selectproduct&searchd="+this.searchd,
+    let   body     : string   = "key=selectproduct&searchd="+this.searchd+"&searchw="+this.searchw,
           type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
-          url      : any      = this.baseURI + "selectproduct.php";
+          url      : any      = this.baseURI +"selectproduct.php";
     this.http.post(url,body,options)
     .map(res => res.json())
     .subscribe(data => {

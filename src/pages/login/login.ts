@@ -16,7 +16,7 @@ export class LoginPage {
   public user:any;
   public password :any;
   public result:any;
-  public baseURI :string = "http://localhost:80/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams ,
@@ -45,7 +45,7 @@ export class LoginPage {
     .subscribe(data => {
       this.result = data; 
     if(this.result !="" ){
-      this.navCtrl.push(TabsPage ,this.result);
+      this.navCtrl.setRoot(TabsPage ,this.result);
     }else{
       alert("ชื่อผู้ใช้หรือรหัสผ่านผิด");
       this.navCtrl.setRoot(LoginPage);
@@ -56,7 +56,7 @@ export class LoginPage {
     
   }
   loginAll(){
-    this.navCtrl.push(TabsalluserPage,0 );
+    this.navCtrl.setRoot(TabsalluserPage,0 );
   }
 
 }

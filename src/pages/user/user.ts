@@ -11,7 +11,7 @@ import { UserUpdatePage } from '../user-update/user-update';
 })
 export class UserPage {
   public items : any = [];
-  public baseURI :string = "http://localhost:80/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public userCode: any = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,

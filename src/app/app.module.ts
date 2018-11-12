@@ -25,6 +25,8 @@ import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { VideoPlayer } from '@ionic-native/video-player';
 import { Geolocation } from '@ionic-native/geolocation';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     SplashScreen,
     Camera,
     VideoPlayer,
-    Geolocation,
+    Geolocation, 
+    FileTransfer, 
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
   ]
