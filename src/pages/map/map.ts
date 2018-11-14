@@ -1,6 +1,5 @@
 import { Component,ViewChild, ElementRef } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Http, RequestOptions, Headers } from '@angular/http';import 'rxjs/add/operator/map';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductDetailPage } from '../product-detail/product-detail';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -19,7 +18,7 @@ export class MapPage {
   public marker:any;
   public lgds: any;
   public lgds2: any;
-  public baseURI :string = "http://192.168.0.112/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public i:any=0;
   public items: any;
   public searchd:any;
@@ -97,7 +96,7 @@ export class MapPage {
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://192.168.0.112/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
        }).catch((error) => {
@@ -130,7 +129,7 @@ export class MapPage {
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://192.168.0.112/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
        }).catch((error) => {
@@ -255,8 +254,9 @@ export class MapPage {
               });
           }
           
-          let content = '<ion-card><ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://192.168.0.112/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
-          this.addInfoWindow(this.marker, content,this.lgds[i]);
+          let content = '<ion-card><ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+      
+       this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
        }).catch((error) => {
          console.log('Error getting location', error);

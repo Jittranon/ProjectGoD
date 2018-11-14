@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 })
 export class ProductUpdatePage {
   public items : any = [];
-  public baseURI :string = "http://192.168.0.112/ionicAPI/";
+  public baseURI :string = "http://localhost/ionicAPI/";
   public gds_name:any ;
   public gds_detail:any;
   public gda_prob:any;
