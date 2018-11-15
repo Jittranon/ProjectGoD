@@ -1,9 +1,11 @@
 import { Component,ViewChild, ElementRef } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';import 'rxjs/add/operator/map';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductDetailPage } from '../product-detail/product-detail';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UserPage } from '../user/user';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 declare var google: any;
 @IonicPage()
@@ -34,10 +36,16 @@ export class MapPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public http:Http,
-              public geolocation: Geolocation) {
+              public geolocation: Geolocation,
+              public google :GoogleMaps) {
   }
 
   ionViewDidLoad() {
+    this.geolocation.getCurrentPosition().then((position) => {
+         this.latlngnow = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         }).catch((error) => {
+         console.log('Error getting location', error);
+      });
     console.log('ionViewDidLoad MapPage');
     this.gds=this.navParams.data;
     console.log(this.gds);
@@ -51,14 +59,14 @@ export class MapPage {
     }
   }
   addlocation(){
-    this.geolocation.getCurrentPosition().then((position) => {
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    //this.geolocation.getCurrentPosition().then((position) => {
+     // let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       this.map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: latLng,
+        center: {lat:15,lng:102},
         zoom:15,
         mapTypeid:'roadmap'
     });
-  });
+  //});
 }
   typeproduct(){
     let   body     : string   = "key=selecttype",
@@ -147,11 +155,8 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-      this.geolocation.getCurrentPosition().then((position) => {
-        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        this.latlngnow = latLng;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: latLng,
+          center: {lat:15,lng:102},
           zoom:9,
           mapTypeid:'roadmap'
       });
@@ -258,9 +263,6 @@ export class MapPage {
       
        this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
-       }).catch((error) => {
-         console.log('Error getting location', error);
-       });
     });
   }
   addInfoWindow(marker, content,lgds) {

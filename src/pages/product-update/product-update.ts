@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 })
 export class ProductUpdatePage {
   public items : any = [];
-  public baseURI :string = "http://localhost/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public gds_name:any ;
   public gds_detail:any;
   public gda_prob:any;

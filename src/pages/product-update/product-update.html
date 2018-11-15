@@ -8,15 +8,15 @@
 </ion-header>
 
 
-<ion-content class="background" *ngFor="let item of items">
-  <ion-card>
-        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic1 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic2 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic3 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://192.168.0.112/smce/upload/{{ item.gds_pic4 }}"/>
+<ion-content class="background" >
+  <ion-card *ngFor="let item of items">
+        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic1 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic2 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic3 }}"/>
+        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic4 }}"/>
       
 </ion-card>
-<ion-card>
+<ion-card  *ngFor="let item of items">
   <ion-card-header>ข้อมูลสินค้า</ion-card-header>
   <ion-card-content>
    <b hidden><ion-input type="number" value="{{ item.gds_id }}" [value]="gds_id" ></ion-input></b>

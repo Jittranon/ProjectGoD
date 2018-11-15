@@ -27,6 +27,7 @@ import { VideoPlayer } from '@ionic-native/video-player';
 import { Geolocation } from '@ionic-native/geolocation';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { File } from '@ionic-native/file';
     Geolocation, 
     FileTransfer, 
     File,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
   ]

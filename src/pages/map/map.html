@@ -3,7 +3,7 @@
   <ion-navbar color="taba">
       <ion-row>
           <ion-col hidden col-5>
-                <ion-input color="light" type="text" placeholder="คำค้นหา" [(ngModel)]="searchw" ></ion-input>
+                <ion-input color="light" type="text" placeholder="คำค้นหา" (value)="searchw" ></ion-input>
           </ion-col>
           <ion-col col-10>
                 <ion-select  stacked [(ngModel)]="searchd" placeholder="เลือกประเภทสินค้า">
