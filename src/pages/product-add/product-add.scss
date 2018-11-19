@@ -33,8 +33,12 @@ page-product-add {
         border-radius: 5px; 
         height: 30px;
     }
+    ion-select{
+        width: 99vw;
+    }
     ion-card.card {
         box-shadow: none;
+        color:rgb(110, 108, 108);
         background: rgba(255,255, 255, 0.5);
         border-radius: 5px; 
         margin-top: 2px;
@@ -50,7 +54,7 @@ page-product-add {
     }
     a,p,
     ion-card-header.card-header {
-        color: #fff!important;
+        color: rgb(148, 144, 144)!important;
     }
     .list > .item-block:first-child {
         border: medium none;

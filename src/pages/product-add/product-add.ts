@@ -12,7 +12,7 @@ import { File } from '@ionic-native/file';
   templateUrl: 'product-add.html',
 })
 export class ProductAddPage {
-  public baseURI :string = "http://192.168.0.112/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public gds_name:any;
   public gds_detail:any;
   public gda_porg:any;
@@ -22,6 +22,12 @@ export class ProductAddPage {
   public myphoto2: string;
   public myphoto3: string;
   public myphoto4: string;
+  public myphotoname1: string;
+  public myphotoname2: string;
+  public myphotoname3: string;
+  public myphotoname4: string;
+  public business: any;
+  public userCode: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -32,15 +38,23 @@ export class ProductAddPage {
   }
 
   ionViewDidLoad() {
+    this.userCode=this.navParams.data;
     this.myphoto1='assets/imgs/logo.png';
     this.myphoto2='assets/imgs/logo.png';
     this.myphoto3='assets/imgs/logo.png';
     this.myphoto4='assets/imgs/logo.png';
     this.typeproduct();
+    this.typebusiness();
     console.log('ionViewDidLoad ProductAddPage');
   }
-  update(gds_name,gds_detail,gda_prob,gds_price){
-    let   body     : string   = "key=addproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gds_prob="+gda_prob+"&gds_price="+gds_price,
+  update(g_code,t_code,gds_name,gds_detail,gda_prob,gds_price){
+    this.uploadImage();
+    alert(this.myphotoname1);
+    alert(this.myphotoname2);
+    alert(this.myphotoname3);
+    alert(this.myphotoname4);
+    
+    /*let   body     : string   = "key=addproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gds_prob="+gda_prob+"&gds_price="+gds_price+"&m_code="+this.userCode+"&pic1="+this.myphotoname1+"&pic2="+this.myphotoname2+"&pic3="+this.myphotoname3+"&pic4="+this.myphotoname4+"&g_code="+g_code+"&t_code="+t_code,
           type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
@@ -48,16 +62,16 @@ export class ProductAddPage {
     this.http.post(url,body,options)
     .map(res => res.json())
     .subscribe(data => {
-      alert(data);
+      //alert(data);
     });
-    this.navCtrl.pop();
+    this.navCtrl.pop();*/
   }
   map(){
     this.navCtrl.push(MapPage,-1);
   }
   typeproduct(){
     let   body     : string   = "key=selecttype",
-          type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectproduct.php";
@@ -65,6 +79,18 @@ export class ProductAddPage {
     .map(res => res.json())
     .subscribe(data => {
     this.type = data;
+  });
+  }
+  typebusiness(){
+    let   body     : string   = "key=selectbusiness",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
+          headers  : any      = new Headers({ 'Content-Type': type}),
+          options  : any      = new RequestOptions({ headers: headers }),
+          url      : any      = this.baseURI + "selectproduct.php";
+    this.http.post(url,body,options)
+    .map(res => res.json())
+    .subscribe(data => {
+    this.business = data;
   });
   }
   takePhoto(){
@@ -163,12 +189,12 @@ export class ProductAddPage {
     });
   }
   uploadImage(){
-    this.uploadImageall(this.myphoto1);
-    this.uploadImageall(this.myphoto2);
-    this.uploadImageall(this.myphoto3);
-    this.uploadImageall(this.myphoto4);
+    this.uploadImage1(this.myphoto1);
+    this.uploadImage2(this.myphoto2);
+    this.uploadImage3(this.myphoto3);
+    this.uploadImage4(this.myphoto4);
   }
-  uploadImageall(myphoto){
+  uploadImage1(myphoto){
     //Show loading
     /*let loader = this.loadingCtrl.create({
       content: "Uploading..."
@@ -177,9 +203,6 @@ export class ProductAddPage {
 
     //create file transfer object
     const fileTransfer: FileTransferObject = this.transfer.create();
-
-    //random int
-    var random = Math.floor(Math.random() * 1000);
 
     //option transfer
     let options: FileUploadOptions = {
@@ -190,10 +213,12 @@ export class ProductAddPage {
       mimeType: "image/jpeg",
       headers: {}
     }
-    alert(options.fileName);
+    //alert(options.fileName);
+    this.myphotoname1 = options.fileName;
+
 
     //file transfer action
-    fileTransfer.upload(myphoto, 'http://192.168.0.112/ionicAPI/uploadPhoto.php', options)
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
       .then((data) => {
         alert("Success");
         //loader.dismiss();
@@ -203,5 +228,108 @@ export class ProductAddPage {
         //loader.dismiss();
       });
   }
+  uploadImage2(myphoto){
+    //Show loading
+    /*let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+    loader.present();*/
+
+    //create file transfer object
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    //option transfer
+    let options: FileUploadOptions = {
+      fileKey: 'photo',
+      fileName: "Image_" + Date.now() + ".jpg",
+      chunkedMode: false,
+      httpMethod: 'post',
+      mimeType: "image/jpeg",
+      headers: {}
+    }
+    //alert(options.fileName);
+    this.myphotoname2 = options.fileName;
+
+
+    //file transfer action
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
+      .then((data) => {
+        //alert("Success");
+        //loader.dismiss();
+      }, (err) => {
+        console.log(err);
+        alert("Error");
+        //loader.dismiss();
+      });
+  }
+  uploadImage3(myphoto){
+    //Show loading
+    /*let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+    loader.present();*/
+
+    //create file transfer object
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    //option transfer
+    let options: FileUploadOptions = {
+      fileKey: 'photo',
+      fileName: "Image_" + Date.now() + ".jpg",
+      chunkedMode: false,
+      httpMethod: 'post',
+      mimeType: "image/jpeg",
+      headers: {}
+    }
+    //alert(options.fileName);
+    this.myphotoname3 = options.fileName;
+
+
+    //file transfer action
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
+      .then((data) => {
+        //alert("Success");
+        //loader.dismiss();
+      }, (err) => {
+        console.log(err);
+        alert("Error");
+        //loader.dismiss();
+      });
+  }
+  uploadImage4(myphoto){
+    //Show loading
+    /*let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+    loader.present();*/
+
+    //create file transfer object
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    //option transfer
+    let options: FileUploadOptions = {
+      fileKey: 'photo',
+      fileName: "Image_" + Date.now() + ".jpg",
+      chunkedMode: false,
+      httpMethod: 'post',
+      mimeType: "image/jpeg",
+      headers: {}
+    }
+    //alert(options.fileName);
+    this.myphotoname4 = options.fileName;
+
+
+    //file transfer action
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
+      .then((data) => {
+        //alert("Success");
+        //loader.dismiss();
+      }, (err) => {
+        console.log(err);
+        alert("Error");
+        //loader.dismiss();
+      });
+  }
+  
   
 }

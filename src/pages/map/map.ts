@@ -48,7 +48,6 @@ export class MapPage {
       });
     console.log('ionViewDidLoad MapPage');
     this.gds=this.navParams.data;
-    console.log(this.gds);
     this. typeproduct();
     if(this.gds<1 &&this.gds >-1){
       this.loadall();
@@ -59,14 +58,11 @@ export class MapPage {
     }
   }
   addlocation(){
-    //this.geolocation.getCurrentPosition().then((position) => {
-     // let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       this.map = new google.maps.Map(this.mapElement.nativeElement, {
         center: {lat:15,lng:102},
         zoom:15,
         mapTypeid:'roadmap'
     });
-  //});
 }
   typeproduct(){
     let   body     : string   = "key=selecttype",
@@ -90,26 +86,20 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-      console.log(this.lgds);
-      this.geolocation.getCurrentPosition().then((position) => {
-        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        this.latlngnow = latLng;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: latLng,
+          center: {lat:15,lng:102},
           zoom:8,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
           this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map
+            map: this.map,
+            icon: 'http://esmce.nrru.ac.th/smce/mobile/color/'+this.lgds[i].color_img
           });
           let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
-       }).catch((error) => {
-         console.log('Error getting location', error);
-       });
     });
   }
   
@@ -124,25 +114,20 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-      this.geolocation.getCurrentPosition().then((position) => {
-        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        this.latlngnow = latLng;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: latLng,
+          center: {lat:15,lng:102},
           zoom:8,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
           this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map
+            map: this.map,
+            icon: 'http://esmce.nrru.ac.th/smce/mobile/color/'+this.lgds[i].color_img
           });
           let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
-       }).catch((error) => {
-         console.log('Error getting location', error);
-       });
     });
   }
   loadall(){
@@ -161,104 +146,12 @@ export class MapPage {
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
-          if(this.lgds[i].t_code==1){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
-          });
-          }else if (this.lgds[i].t_code==2){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-            });
-          }else if (this.lgds[i].t_code==3){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-            });
-          }else if (this.lgds[i].t_code==4){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-            });
-          }else if (this.lgds[i].t_code==5){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
-            });
-          }else if (this.lgds[i].t_code==6){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'
-            });
-          }else if (this.lgds[i].t_code==7){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-            });
-          }else if (this.lgds[i].t_code==8){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-            });
-          }else if (this.lgds[i].t_code==9){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-            });
-          }else if (this.lgds[i].t_code==10){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-            });
-          }else if (this.lgds[i].t_code==11){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
-            });
-          }else if (this.lgds[i].t_code==12){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
-            });
-          }else if (this.lgds[i].t_code==13){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
-            });
-          }else if (this.lgds[i].t_code==14){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-            });
-          }else if (this.lgds[i].t_code==15){
-            this.marker = new google.maps.Marker({
-            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-            map: this.map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
-            });
-          }else{
-            this.marker = new google.maps.Marker({
-              position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
-              map: this.map,
-              icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-              });
-          }
           
+          this.marker = new google.maps.Marker({
+            position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
+            map: this.map,
+            icon: 'http://esmce.nrru.ac.th/smce/mobile/color/'+this.lgds[i].color_img
+          });
           let content = '<ion-card><ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
       
        this.addInfoWindow(this.marker, content,this.lgds[i]);

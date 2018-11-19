@@ -43,6 +43,6 @@ export class ProductdataPage {
     this.navCtrl.push(ProductUpdatePage,item);
   }
   add(){
-    this.navCtrl.push(ProductAddPage);
+    this.navCtrl.push(ProductAddPage,this.userCode);
   }
 }

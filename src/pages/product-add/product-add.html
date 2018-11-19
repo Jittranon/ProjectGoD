@@ -12,17 +12,25 @@
   <ion-card>
   <ion-card-header>ข้อมูลสินค้า</ion-card-header>
   <ion-card-content>
-  <b>ประเภทสินค้า </b><br>
-  <ion-select  stacked [(ngModel)]="searchd" placeholder="เลือกประเภทสินค้า">
-    <ion-option value="0" selected>ทั้งหมด</ion-option>
+    
+  <b>ประเภทธุรกิจ </b><br>
+  <ion-item>
+    <ion-select  stacked [(ngModel)]="g_code" placeholder="เลือกประเภทธุรกิจ">
+    <ion-option *ngFor="let business of business" value="{{ business.g_code }}">{{ business.g_name }}</ion-option>
+  </ion-select>
+  </ion-item>
+
+    <b>ประเภทสินค้า </b><br>
+  <ion-item>
+  <ion-select  stacked [(ngModel)]="t_code" placeholder="เลือกประเภทสินค้า">
   <ion-option *ngFor="let type of type" value="{{ type.t_code }}">{{ type.t_name }}</ion-option>
   </ion-select>
-  <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="" [(ngModel)]="gds_name" ></ion-input></b><br>
-  
-  <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="" [(ngModel)]="gds_detail" ></ion-input></b><br>
-  <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="" [(ngModel)]="gda_prob" ></ion-input></b><br>
-  <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="" [(ngModel)]="gds_price" ></ion-input></b><br>
-  <button  ion-button block outline (click)=map() color="light" >ปักหมุดพิกัด</button><br>
+</ion-item>
+  <b>ชื่อสินค้า <ion-input type="text" placeholder="ชื่อสินค้า" value="" [value]="gds_name" ></ion-input></b>
+  <b>รายละเอียดสินค้า <ion-input type="text" placeholder="รายละเอียดสินค้า" value="" [value]="gds_detail" ></ion-input></b>
+  <b>คุณสมบัติสินค้า <ion-input type="text" placeholder="คุณสมบัติสินค้า" value="" [value]="gda_prob" ></ion-input></b>
+  <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="" [value]="gds_price" ></ion-input></b>
+  <button  ion-button block outline (click)=map() color="light" >ปักหมุดพิกัด</button>
   </ion-card-content>
   </ion-card> 
   <ion-card>
@@ -38,5 +46,5 @@
       </ion-card-content>
   </ion-card>
   <button  ion-button block outline (click)=uploadImage() color="light" >บันทึกภาพ</button>
-  <button  ion-button block outline (click)=update(gds_name,gds_detail,gda_prob,gds_price) color="light" >บันทึก</button>
+  <button  ion-button block outline (click)=update(g_code,t_code,gds_name,gds_detail,gda_prob,gds_price) color="light" >บันทึก</button>
 </ion-content>
