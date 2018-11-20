@@ -39,11 +39,7 @@ export class ProductUpdatePage {
     });
   }
   update(gds_id,gds_name,gds_detail,gds_prob,gds_price){
-    alert(gds_name);
-    alert(gds_detail);
-    alert(gds_prob);
-    alert(gds_price);
-    /*let   body     : string   = "key=updateproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gds_prob="+gds_prob+"&gds_price="+gds_price+"&gds_id="+gds_id,
+    let   body     : string   = "key=updateproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gds_prob="+gds_prob+"&gds_price="+gds_price+"&gds_id="+gds_id,
           type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
@@ -53,7 +49,7 @@ export class ProductUpdatePage {
     .subscribe(data => {
     alert(data);
   });
-    this.navCtrl.pop();*/
+    this.navCtrl.pop();
   }
   
 }

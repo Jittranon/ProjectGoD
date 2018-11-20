@@ -17,7 +17,7 @@
 
 <ion-content class="background"> 
             <ion-fab top right>
-                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+                <button (click)="add()" ion-fab mini><ion-icon name="add"></ion-icon></button>
             </ion-fab>
     <ion-list *ngFor="let item of items">
         <ion-card   (click)=viewDetail(item) no-lines>

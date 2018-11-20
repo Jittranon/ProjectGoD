@@ -1,7 +1,7 @@
 import { Component,ViewChild, ElementRef } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { ProductDetailPage } from '../product-detail/product-detail';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UserPage } from '../user/user';
@@ -37,14 +37,23 @@ export class MapPage {
               public navParams: NavParams,
               public http:Http,
               public geolocation: Geolocation,
-              public google :GoogleMaps) {
+              public google :GoogleMaps,
+              public platform :Platform) {
   }
 
   ionViewDidLoad() {
-    this.geolocation.getCurrentPosition().then((position) => {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 30000,
+      maximumAge: 0
+    };
+
+   
+     this.geolocation.getCurrentPosition(options).then((position) => {
          this.latlngnow = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
          }).catch((error) => {
          console.log('Error getting location', error);
+         alert('kkkkk '+error.code+' '+error.message);
       });
     console.log('ionViewDidLoad MapPage');
     this.gds=this.navParams.data;
@@ -63,6 +72,9 @@ export class MapPage {
         zoom:15,
         mapTypeid:'roadmap'
     });
+    google.maps.event.addListener(this.map, 'click',function(my){
+      alert(my.lat+''+my.lng);
+    })
 }
   typeproduct(){
     let   body     : string   = "key=selecttype",
@@ -87,8 +99,8 @@ export class MapPage {
     .subscribe(data => {
       this.lgds = data;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat:15,lng:102},
-          zoom:8,
+          center: this.latlngnow,
+          zoom:15,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
@@ -114,9 +126,10 @@ export class MapPage {
     .map(res => res.json())
     .subscribe(data => {
       this.lgds = data;
-        this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat:15,lng:102},
-          zoom:8,
+      let latlngproduct = new google.maps.LatLng(data[0].lgds_lat,data[0].lgds_lng);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, { 
+          center: latlngproduct,
+          zoom:15,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
@@ -141,10 +154,11 @@ export class MapPage {
     .subscribe(data => {
       this.lgds = data;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat:15,lng:102},
-          zoom:9,
+          center: this.latlngnow,
+          zoom:15,
           mapTypeid:'roadmap'
       });
+      
         for(var i = 0; i < this.lgds.length; i++ ){
           
           this.marker = new google.maps.Marker({

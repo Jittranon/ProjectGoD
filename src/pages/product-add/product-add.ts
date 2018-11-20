@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { MapPage } from '../map/map';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
 @IonicPage()
 @Component({
   selector: 'page-product-add',
@@ -33,8 +32,7 @@ export class ProductAddPage {
               public navParams: NavParams,
               public http:Http,
               public camera:Camera, 
-              private transfer: FileTransfer, 
-              private file: File) {
+              private transfer: FileTransfer) {
   }
 
   ionViewDidLoad() {
@@ -49,12 +47,8 @@ export class ProductAddPage {
   }
   update(g_code,t_code,gds_name,gds_detail,gda_prob,gds_price){
     this.uploadImage();
-    alert(this.myphotoname1);
-    alert(this.myphotoname2);
-    alert(this.myphotoname3);
-    alert(this.myphotoname4);
     
-    /*let   body     : string   = "key=addproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gds_prob="+gda_prob+"&gds_price="+gds_price+"&m_code="+this.userCode+"&pic1="+this.myphotoname1+"&pic2="+this.myphotoname2+"&pic3="+this.myphotoname3+"&pic4="+this.myphotoname4+"&g_code="+g_code+"&t_code="+t_code,
+    let   body     : string   = "key=addproduct&gds_name="+gds_name+"&gds_detail="+gds_detail+"&gds_prob="+gda_prob+"&gds_price="+gds_price+"&m_code="+this.userCode+"&pic1="+this.myphotoname1+"&pic2="+this.myphotoname2+"&pic3="+this.myphotoname3+"&pic4="+this.myphotoname4+"&g_code="+g_code+"&t_code="+t_code,
           type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
@@ -64,7 +58,7 @@ export class ProductAddPage {
     .subscribe(data => {
       //alert(data);
     });
-    this.navCtrl.pop();*/
+    //this.navCtrl.pop();
   }
   map(){
     this.navCtrl.push(MapPage,-1);
@@ -218,8 +212,9 @@ export class ProductAddPage {
 
 
     //file transfer action
-    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
-      .then((data) => {
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
+      .then(function(data) {
+        alert(data.response);
         alert("Success");
         //loader.dismiss();
       }, (err) => {
@@ -252,9 +247,9 @@ export class ProductAddPage {
 
 
     //file transfer action
-    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
       .then((data) => {
-        //alert("Success");
+        alert("Success");
         //loader.dismiss();
       }, (err) => {
         console.log(err);
@@ -286,9 +281,9 @@ export class ProductAddPage {
 
 
     //file transfer action
-    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
       .then((data) => {
-        //alert("Success");
+        alert("Success");
         //loader.dismiss();
       }, (err) => {
         console.log(err);
@@ -320,9 +315,9 @@ export class ProductAddPage {
 
 
     //file transfer action
-    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/mobile/uploadPhoto.php', options)
+    fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
       .then((data) => {
-        //alert("Success");
+        alert("Success");
         //loader.dismiss();
       }, (err) => {
         console.log(err);

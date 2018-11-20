@@ -30,7 +30,7 @@ export class ProductPage {
   }
   typeproduct(){
     let   body     : string   = "key=selecttype",
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectproduct.php";
@@ -42,7 +42,7 @@ export class ProductPage {
   }
   load(){
     let   body     : string   = "key=select",
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectproduct.php";
@@ -60,7 +60,7 @@ export class ProductPage {
   }
   loaddata(){
     let   body     : string   = "key=selectproduct&searchd="+this.searchd+"&searchw="+this.searchw,
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI +"selectproduct.php";
