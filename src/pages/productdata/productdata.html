@@ -2,25 +2,19 @@
 <ion-header>
 
   <ion-navbar color="taba">
-      <ion-row>
-        <ion-col col-10>
-            <ion-title><ion-icon  color="light" name = "leaf"></ion-icon> ข้อมูลสินค้า</ion-title>
-        </ion-col>
-        <ion-col col-2 >
-            <ion-title (click)="add()"><ion-icon   color="light" name = "add"></ion-icon></ion-title>
-        </ion-col>
-      </ion-row>  
-      
+            <ion-title>ข้อมูลสินค้า</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 <ion-content class="background"> 
-            <ion-fab top right>
-                <button (click)="add()" ion-fab mini><ion-icon name="add"></ion-icon></button>
-            </ion-fab>
     <ion-list *ngFor="let item of items">
-        <ion-card   (click)=viewDetail(item) no-lines>
+        <ion-card  no-lines>
+                <ion-fab top right color="light" >
+                        <button ion-fab mini><ion-icon name="list"></ion-icon></button>
+                        <ion-fab-list side="left">
+                            <button (click)="delete()" color="danger" ion-fab><ion-icon name="trash"></ion-icon></button>
+                          <button (click)=viewDetail(item) color="dark" ion-fab><ion-icon name="create"></ion-icon></button>
+                        </ion-fab-list>
+                </ion-fab>
             <ion-slides pager style="height: 300px;">
                 <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic1 }}"/></ion-slide>
                 <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic2 }}"/></ion-slide>
@@ -37,5 +31,7 @@
             </ion-card-content>
         </ion-card>
     </ion-list>
-
+    <ion-fab bottom right color="light" >
+            <button ion-fab mini (click)="add()" ion-fab><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
 </ion-content>

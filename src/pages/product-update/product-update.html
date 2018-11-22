@@ -26,5 +26,7 @@
    <b>ราคาสินค้า <ion-input type="number" placeholder="ราคาสินค้า" value="{{ item.gds_price }}" [(ngModel)]="gds_price" ></ion-input></b>
   </ion-card-content>
 </ion-card>
-<button  ion-button block outline (click)=update(gds_id,gds_name,gds_detail,gds_prob,gds_price) color="light" >บันทึก</button>
+<ion-fab bottom right color="light" >
+    <button ion-fab mini (click)=update(gds_id,gds_name,gds_detail,gds_prob,gds_price) ion-fab><ion-icon name="cloud-upload"></ion-icon></button>
+</ion-fab>
 </ion-content>

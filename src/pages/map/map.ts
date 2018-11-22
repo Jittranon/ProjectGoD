@@ -45,7 +45,7 @@ export class MapPage {
     var options = {
       enableHighAccuracy: true,
       timeout: 30000,
-      maximumAge: 0
+      maximumAge: 3000
     };
 
    

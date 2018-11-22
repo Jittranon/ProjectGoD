@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class UserDataUpdatePage {
   public items : any =[];
   public userCode: any ;
-  public baseURI :string = "http://192.168.0.112/ionicAPI/";
+  public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public provinceall: any=[];
   public province:any;
   public amphurall: any;

@@ -9,25 +9,39 @@
 
 <ion-content class="background">
   <ion-list> 
+    <ion-card *ngFor="let item of items">
+        <img style="height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.mem_image }}"/>
+    </ion-card>
             <ion-card *ngFor="let item of items" no-lines>
-              <img style="height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.mem_logo }}"/>
-                  <ion-card-content >
+              <ion-card-content >
                   <ion-card-title>
-                    {{ item.mem_name }}
+                      <b> {{ item.mem_name }}</b>
                   </ion-card-title>
                   <h4><b>ข้อมูลธุรกิจ</b> {{ item.mem_detail }}</h4><br>
-                  <h4><b>ที่อยู่ </b>{{ item.mem_addr }}</h4><br>
-                  <h4><b>ตำบล</b> {{ item.district_name }}</h4><br> 
-                  <h4><b>อำเภอ</b> {{ item.amphur_name }}</h4><br>
-                  <h4><b>จังหวัด</b> {{ item.province_name }}</h4><br>
-                  <h4><b>เบอร์บ้าน</b> {{ item.mem_telhome }}</h4><br>
-                  <h4><b>มือถือ</b> {{ item.mem_mobile }}</h4><br>
-                  <h4><b>เบอร์แฟก</b> {{ item.mem_fax }}</h4><br>
-                  <h4><b>อีเมล์</b> {{ item.mem_email }}</h4><br>
-                  <h4><b>ไลน์ไอดี</b> {{ item.mem_line }}</h4><br>
-                  <h4><b>Facebook</b> {{ item.mem_fb }}</h4><br>
-                  <h4><b>Twitter</b> {{ item.mem_twitter }}</h4>
                 </ion-card-content>
             </ion-card>
+            <ion-card *ngFor="let item of items" no-lines>
+                <ion-card-content >
+                    <ion-card-title><b>เกี่ยวกับที่อยู่</b></ion-card-title>
+                    
+                    <h4><b>ที่อยู่ </b>{{ item.mem_addr }}</h4><br>
+                    <h4><b>ตำบล</b> {{ item.district_name }}</h4><br> 
+                    <h4><b>อำเภอ</b> {{ item.amphur_name }}</h4><br>
+                    <h4><b>จังหวัด</b> {{ item.province_name }}</h4><br>
+                  </ion-card-content>
+              </ion-card>
+              <ion-card *ngFor="let item of items" no-lines>
+                  <ion-card-content >
+                      <ion-card-title><b>ช่องทางการติดต่อ</b></ion-card-title>
+
+                      <h4><b>เบอร์บ้าน</b> {{ item.mem_telhome }}</h4><br>
+                      <h4><b>มือถือ</b> {{ item.mem_mobile }}</h4><br>
+                      <h4><b>เบอร์แฟก</b> {{ item.mem_fax }}</h4><br>
+                      <h4><b>อีเมล์</b> {{ item.mem_email }}</h4><br>
+                      <h4><b>ไลน์ไอดี</b> {{ item.mem_line }}</h4><br>
+                      <h4><b>Facebook</b> {{ item.mem_fb }}</h4><br>
+                      <h4><b>Twitter</b> {{ item.mem_twitter }}</h4>
+                    </ion-card-content>
+                </ion-card>
   </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="taba">
-              <ion-title><ion-icon  color="light" name = "leaf"></ion-icon> เพิ่มสินค้า</ion-title>
+              <ion-title>เพิ่มสินค้า</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -45,6 +45,7 @@
         <img (click)=takePhoto4() src="{{ myphoto4 }}"/>
       </ion-card-content>
   </ion-card>
-  <button  ion-button block outline (click)=uploadImage() color="light" >บันทึกภาพ</button>
-  <button  ion-button block outline (click)=update(g_code,t_code,gds_name,gds_detail,gda_prob,gds_price) color="light" >บันทึก</button>
+  <ion-fab bottom right color="light" >
+      <button ion-fab mini (click)=update(g_code,t_code,gds_name,gds_detail,gda_prob,gds_price) ion-fab><ion-icon name="cloud-upload"></ion-icon></button>
+  </ion-fab>
 </ion-content>
