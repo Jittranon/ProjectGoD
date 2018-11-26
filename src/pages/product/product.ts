@@ -22,6 +22,15 @@ export class ProductPage {
               public navParams: NavParams,
               public http:Http) {
   }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.load();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
 
   ionViewWillEnter(){
     this.user=this.navParams.data;

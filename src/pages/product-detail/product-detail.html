@@ -8,6 +8,14 @@
 
 
 <ion-content class="background">
+    <ion-refresher  (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="เลื่อนลงเพื่อโหลดใหม่"
+          refreshingSpinner="circles"
+          refreshingText="กำลังโหลดใหม่">
+        </ion-refresher-content>
+      </ion-refresher>
     <ion-card>
           <ion-slides pager style="height: 300px;">
             <ion-slide ><img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ items.gds_pic1 }}"/></ion-slide>

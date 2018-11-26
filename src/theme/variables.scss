@@ -55,6 +55,11 @@ $colors: (
   width: 100vw;
   height: 100vh;
 }
+ion-content.has-refresher{
+  box-shadow: none;
+  background: rgba(255,255, 255, 0);
+  background-image: url('../assets/imgs/bg.jpg');
+}
 
 
 // App Material Design Variables

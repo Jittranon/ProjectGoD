@@ -2,10 +2,10 @@
 
   <ion-navbar color="taba">
       <ion-row>
-          <ion-col  col-5>
+          <ion-col hidden  col-5>
                 <ion-input color="light" type="text" placeholder="คำค้นหา" [(ngModel)]="searchw" ></ion-input>
           </ion-col>
-          <ion-col col-5>
+          <ion-col col-10>
                 <ion-select  stacked [(ngModel)]="searchd" placeholder="เลือกประเภทสินค้า">
                     <ion-option value="0" selected>ทั้งหมด</ion-option>
                     <ion-option *ngFor="let type of type" value="{{ type.t_code }}">{{ type.t_name }}</ion-option>
@@ -22,6 +22,14 @@
 
 
 <ion-content class="background">
+        <ion-refresher  (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content
+                  pullingIcon="arrow-dropdown"
+                  pullingText="เลื่อนลงเพื่อโหลดใหม่"
+                  refreshingSpinner="circles"
+                  refreshingText="กำลังโหลดใหม่">
+                </ion-refresher-content>
+              </ion-refresher>
   <ion-list>
       <ion-card *ngFor="let item of items"  (click)=viewDetail(item) no-lines>
           <ion-slides pager style="height: 300px;">

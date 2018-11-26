@@ -26,6 +26,15 @@ export class UserPage {
   ionViewWillEnter(){
     this.load();
   }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.load();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
   load(){
     let   body     : string   = "key=select&userCode="+this.userCode,
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",

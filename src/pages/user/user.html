@@ -8,6 +8,14 @@
 
 
 <ion-content class="background">
+        <ion-refresher  (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content
+                  pullingIcon="arrow-dropdown"
+                  pullingText="เลื่อนลงเพื่อโหลดใหม่"
+                  refreshingSpinner="circles"
+                  refreshingText="กำลังโหลดใหม่">
+                </ion-refresher-content>
+              </ion-refresher>
   <ion-list> 
     <ion-card *ngFor="let item of items">
         <img style="height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ item.mem_image }}"/>
@@ -20,6 +28,7 @@
                   <h4><b>ข้อมูลธุรกิจ</b> {{ item.mem_detail }}</h4><br>
                 </ion-card-content>
             </ion-card>
+            
             <ion-card *ngFor="let item of items" no-lines>
                 <ion-card-content >
                     <ion-card-title><b>เกี่ยวกับที่อยู่</b></ion-card-title>

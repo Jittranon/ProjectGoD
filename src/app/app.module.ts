@@ -28,6 +28,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Geolocation, 
     FileTransfer, 
     File,
+    AndroidPermissions,
     GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 

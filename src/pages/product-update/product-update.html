@@ -10,10 +10,14 @@
 
 <ion-content class="background" >
   <ion-card *ngFor="let item of items">
-        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic1 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic2 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic3 }}"/>
-        <img style="height: 300px;width: 100%;" src="http://esmce.nrru.ac.th/smce/upload/{{ item.gds_pic4 }}"/>
+        <b>ภาพด้านหน้า</b><br>
+        <img (click)=takePhoto1() style="height: 300px;width: 100%;" src="{{ myphoto1 }}"/>
+        <b>ภาพด้านซ้าย</b><br>
+        <img (click)=takePhoto2() style="height: 300px;width: 100%;" src="{{ myphoto2 }}"/>
+        <b>ภาพด้านขวา</b><br>
+        <img (click)=takePhoto3() style="height: 300px;width: 100%;" src="{{ myphoto3 }}"/>
+        <b>ภาพด้านหลัง</b><br>
+        <img (click)=takePhoto4() style="height: 300px;width: 100%;" src="{{ myphoto4 }}"/>
       
 </ion-card>
 <ion-card  *ngFor="let item of items">

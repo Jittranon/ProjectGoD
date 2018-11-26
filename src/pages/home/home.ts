@@ -21,6 +21,15 @@ export class HomePage {
   ionViewWillEnter(){
     this.load();
   }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.load();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
   load(){
     this.image_base64='assets/imgs/logo.png';
     this.http.get('http://esmce.nrru.ac.th/smce/mobile/selectnews.php')

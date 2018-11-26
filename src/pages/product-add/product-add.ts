@@ -3,7 +3,6 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { MapPage } from '../map/map';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 @IonicPage()
 @Component({
@@ -58,10 +57,7 @@ export class ProductAddPage {
     .subscribe(data => {
       //alert(data);
     });
-    //this.navCtrl.pop();
-  }
-  map(){
-    this.navCtrl.push(MapPage,-1);
+    this.navCtrl.pop();
   }
   typeproduct(){
     let   body     : string   = "key=selecttype",
@@ -213,15 +209,14 @@ export class ProductAddPage {
 
     //file transfer action
     fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
-      .then(function(data) {
-        alert(data.response);
-        alert("Success");
-        //loader.dismiss();
-      }, (err) => {
-        console.log(err);
-        alert("Error");
-        //loader.dismiss();
-      });
+    .then((data) => {
+      //alert("อัพโหลดภาพที่ 1 สำเร็จ");
+      //loader.dismiss();
+    }, (err) => {
+      console.log(err);
+      alert("อัพโหลดภาพที่ 1 ไม่สำเร็จ");
+      //loader.dismiss();
+    });
   }
   uploadImage2(myphoto){
     //Show loading
@@ -248,14 +243,14 @@ export class ProductAddPage {
 
     //file transfer action
     fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
-      .then((data) => {
-        alert("Success");
-        //loader.dismiss();
-      }, (err) => {
-        console.log(err);
-        alert("Error");
-        //loader.dismiss();
-      });
+    .then((data) => {
+      //alert("อัพโหลดภาพที่ 2 สำเร็จ");
+      //loader.dismiss();
+    }, (err) => {
+      console.log(err);
+      alert("อัพโหลดภาพที่ 2 ไม่สำเร็จ");
+      //loader.dismiss();
+    });
   }
   uploadImage3(myphoto){
     //Show loading
@@ -282,14 +277,14 @@ export class ProductAddPage {
 
     //file transfer action
     fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
-      .then((data) => {
-        alert("Success");
-        //loader.dismiss();
-      }, (err) => {
-        console.log(err);
-        alert("Error");
-        //loader.dismiss();
-      });
+    .then((data) => {
+      //alert("อัพโหลดภาพที่ 3 สำเร็จ");
+      //loader.dismiss();
+    }, (err) => {
+      console.log(err);
+      alert("อัพโหลดภาพที่ 3 ไม่สำเร็จ");
+      //loader.dismiss();
+    });
   }
   uploadImage4(myphoto){
     //Show loading
@@ -316,14 +311,14 @@ export class ProductAddPage {
 
     //file transfer action
     fileTransfer.upload(myphoto, 'http://esmce.nrru.ac.th/smce/uploadPhoto.php', options)
-      .then((data) => {
-        alert("Success");
-        //loader.dismiss();
-      }, (err) => {
-        console.log(err);
-        alert("Error");
-        //loader.dismiss();
-      });
+    .then((data) => {
+      //alert("อัพโหลดภาพที่ 4 สำเร็จ");
+      //loader.dismiss();
+    }, (err) => {
+      console.log(err);
+      alert("อัพโหลดภาพที่ 4 ไม่สำเร็จ");
+      //loader.dismiss();
+    });
   }
   
   

@@ -6,13 +6,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="background"> 
+        <ion-refresher  (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content
+                  pullingIcon="arrow-dropdown"
+                  pullingText="เลื่อนลงเพื่อโหลดใหม่"
+                  refreshingSpinner="circles"
+                  refreshingText="กำลังโหลดใหม่">
+                </ion-refresher-content>
+              </ion-refresher>
     <ion-list *ngFor="let item of items">
         <ion-card  no-lines>
                 <ion-fab top right color="light" >
                         <button ion-fab mini><ion-icon name="list"></ion-icon></button>
                         <ion-fab-list side="left">
-                            <button (click)="delete()" color="danger" ion-fab><ion-icon name="trash"></ion-icon></button>
-                          <button (click)=viewDetail(item) color="dark" ion-fab><ion-icon name="create"></ion-icon></button>
+                            <button (click)="delete(item)" color="danger" ion-fab><ion-icon name="trash"></ion-icon></button>
+                            <button (click)=viewDetail(item) color="light" ion-fab><ion-icon name="create"></ion-icon></button>
+                            <button (click)=map(item) color="dark" ion-fab><ion-icon name="map"></ion-icon></button>
                         </ion-fab-list>
                 </ion-fab>
             <ion-slides pager style="height: 300px;">

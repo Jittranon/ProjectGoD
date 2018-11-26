@@ -42,7 +42,8 @@ export class MapPage {
   }
 
   ionViewDidLoad() {
-    var options = {
+    this.latlngnow = new google.maps.LatLng(14.97, 102.08);
+    /*var options = {
       enableHighAccuracy: true,
       timeout: 30000,
       maximumAge: 3000
@@ -54,27 +55,44 @@ export class MapPage {
          }).catch((error) => {
          console.log('Error getting location', error);
          alert('kkkkk '+error.code+' '+error.message);
-      });
+      });*/
     console.log('ionViewDidLoad MapPage');
     this.gds=this.navParams.data;
     this. typeproduct();
     if(this.gds<1 &&this.gds >-1){
       this.loadall();
-    }else if(this.gds<0){
-      this.addlocation();
-    }else{
+    }else if(this.gds>0){
       this.load();
+    }else{
+      this.addlocation();
     }
   }
   addlocation(){
       this.map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: {lat:15,lng:102},
+        center: this.latlngnow,
         zoom:15,
         mapTypeid:'roadmap'
     });
-    google.maps.event.addListener(this.map, 'click',function(my){
-      alert(my.lat+''+my.lng);
-    })
+    google.maps.event.addListener(this.map, 'click', (event) =>{
+      let marker = new google.maps.Marker({
+        position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+        map: this.map,
+        icon: 'assets/imgs/m0.png'
+      });
+      google.maps.event.addListener(marker, 'click', () =>{
+      let   body     : string   = "key=addlocation&lat="+event.latLng.lat()+"&lng="+event.latLng.lng()+"&gds_id="+this.gds.gds_id+"&t_code="+this.gds.t_code+"&m_code="+this.gds.m_code,
+            type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
+            headers  : any      = new Headers({ 'Content-Type': type}),
+            options  : any      = new RequestOptions({ headers: headers }),
+            url      : any      = this.baseURI + "/addandupdate.php";
+      this.http.post(url,body,options)
+      .map(res => res.json())
+      .subscribe(data => {
+        //alert(data);
+      });
+      this.navCtrl.pop();
+    });
+  });
 }
   typeproduct(){
     let   body     : string   = "key=selecttype",
@@ -107,7 +125,7 @@ export class MapPage {
           this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map,
-            icon: 'http://esmce.nrru.ac.th/smce/mobile/color/'+this.lgds[i].color_img
+            icon: 'assets/imgs/'+this.lgds[i].color_img
           });
           let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
@@ -136,7 +154,7 @@ export class MapPage {
           this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map,
-            icon: 'http://esmce.nrru.ac.th/smce/mobile/color/'+this.lgds[i].color_img
+            icon: 'assets/imgs/'+this.lgds[i].color_img
           });
           let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
@@ -164,7 +182,7 @@ export class MapPage {
           this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.lgds[i].lgds_lat, this.lgds[i].lgds_lng),
             map: this.map,
-            icon: 'http://esmce.nrru.ac.th/smce/mobile/color/'+this.lgds[i].color_img
+            icon: 'assets/imgs/'+this.lgds[i].color_img
           });
           let content = '<ion-card><ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
       
@@ -209,6 +227,9 @@ export class MapPage {
   }
   goods(){
     this.navCtrl.push(ProductDetailPage ,this.gdsid);
+  }
+  refresh(){
+    this.loadall();
   }
 }
 

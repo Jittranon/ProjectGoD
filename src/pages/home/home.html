@@ -5,6 +5,14 @@
 </ion-header>
 
 <ion-content class="background" >
+    <ion-refresher  (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="เลื่อนลงเพื่อโหลดใหม่"
+          refreshingSpinner="circles"
+          refreshingText="กำลังโหลดใหม่">
+        </ion-refresher-content>
+      </ion-refresher>
   <ion-list>
   <ion-card *ngFor="let item of items"  >
       <ion-slides pager style="height:auto" >

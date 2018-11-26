@@ -22,6 +22,15 @@ export class ProductDetailPage {
     this.user = this.navParams.data.m_code;
     this.gds = this.navParams.data.gds_id;
   }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewDidLoad();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
   map(){
     this.navCtrl.push(MapPage,this.gds );
   }
