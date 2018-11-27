@@ -52,5 +52,25 @@
                       <h4><b>Twitter</b> {{ item.mem_twitter }}</h4>
                     </ion-card-content>
                 </ion-card>
+                <ion-card >
+                    <ion-card-title><b>สินค้าจากอื่นๆจากผู้ประกอบการ</b></ion-card-title>
+                </ion-card>
+                <ion-card *ngFor="let itemdatas of itemdata" (click)=viewDetail(itemdatas) no-lines>
+                    <ion-slides pager style="height: 300px;">
+
+                        <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ itemdatas.gds_pic1 }}"/></ion-slide>
+                        <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ itemdatas.gds_pic2 }}"/></ion-slide>
+                        <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ itemdatas.gds_pic3 }}"/></ion-slide>
+                        <ion-slide ><img style="width: 100vw;height: 300px" src="http://esmce.nrru.ac.th/smce/upload/{{ itemdatas.gds_pic4 }}"/></ion-slide>
+                      
+                      </ion-slides>
+                  <ion-card-content >
+                      <ion-card-title>
+                        {{ itemdatas.gds_name }}
+                      </ion-card-title>
+                      <h4><b>คุณสมบัติ</b> {{ itemdatas.gds_prob }}</h4>
+                      <h4><b>ราคา</b> {{ itemdatas.gds_price }} บาท</h4>
+                    </ion-card-content>
+                </ion-card>
   </ion-list>
 </ion-content>

@@ -5,7 +5,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { ProductDetailPage } from '../product-detail/product-detail';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UserPage } from '../user/user';
-import { GoogleMaps } from '@ionic-native/google-maps';
+import { GoogleMaps, CameraPosition } from '@ionic-native/google-maps';
 
 declare var google: any;
 @IonicPage()
@@ -70,7 +70,7 @@ export class MapPage {
   addlocation(){
       this.map = new google.maps.Map(this.mapElement.nativeElement, {
         center: this.latlngnow,
-        zoom:15,
+        zoom:13,
         mapTypeid:'roadmap'
     });
     google.maps.event.addListener(this.map, 'click', (event) =>{
@@ -118,7 +118,7 @@ export class MapPage {
       this.lgds = data;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           center: this.latlngnow,
-          zoom:15,
+          zoom:13,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
@@ -147,7 +147,7 @@ export class MapPage {
       let latlngproduct = new google.maps.LatLng(data[0].lgds_lat,data[0].lgds_lng);
         this.map = new google.maps.Map(this.mapElement.nativeElement, { 
           center: latlngproduct,
-          zoom:15,
+          zoom:13,
           mapTypeid:'roadmap'
       });
         for(var i = 0; i < this.lgds.length; i++ ){
@@ -173,7 +173,7 @@ export class MapPage {
       this.lgds = data;
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           center: this.latlngnow,
-          zoom:15,
+          zoom:13,
           mapTypeid:'roadmap'
       });
       
@@ -184,23 +184,39 @@ export class MapPage {
             map: this.map,
             icon: 'assets/imgs/'+this.lgds[i].color_img
           });
-          let content = '<ion-card><ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card><ion-card-title ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
       
        this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
+        google.maps.event.addListener(this.map, 'click', (event) =>{
+        let marker = new google.maps.Marker({
+          position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+          map: this.map,
+          icon: 'assets/imgs/m0.png'
+        });
+        this.latlngnow = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+        /*let Camposition : CameraPosition = {
+          target: this.latlngnow,
+          zoom: 22,
+          tilt: 30
+        };
+        this.map.moveCamera(Camposition);*/
+      })
     });
+      
   }
   addInfoWindow(marker, content,lgds) {
     let infoWindow = new google.maps.InfoWindow({
       content: content,
     });
       //infoWindow.open(this.map, marker);
-      google.maps.event.addListener(marker, 'click', () =>{
+        google.maps.event.addListener(marker, 'click', () =>{
         infoWindow.open(this.map, marker);
         this.gdsid = lgds;
         this.personid = lgds.m_code;
         this.latlng = new google.maps.LatLng(lgds.lgds_lat, lgds.lgds_lng);
       })
+      
   }
   route(){
       let directionsService = new google.maps.DirectionsService;

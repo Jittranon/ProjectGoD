@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { UserUpdatePage } from '../user-update/user-update';
+import { ProductDetailPage } from '../product-detail/product-detail';
 
 @IonicPage()
 @Component({
@@ -11,6 +11,7 @@ import { UserUpdatePage } from '../user-update/user-update';
 })
 export class UserPage {
   public items : any = [];
+  public itemdata : any = [];
   public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
   public userCode: any = [];
   constructor(public navCtrl: NavController, 
@@ -25,10 +26,12 @@ export class UserPage {
   }
   ionViewWillEnter(){
     this.load();
+    this.loaddata();
   }
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
     this.load();
+    this.loaddata();
 
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -47,7 +50,19 @@ export class UserPage {
       this.items = data;
     });
   }
-  update(){
-    this.navCtrl.push(UserUpdatePage,this.userCode);
+  loaddata(){
+    let   body     : string   = "key=selectproductperson&userCode="+this.userCode,
+          type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
+          headers  : any      = new Headers({ 'Content-Type': type}),
+          options  : any      = new RequestOptions({ headers: headers }),
+          url      : any      = this.baseURI + "selectproduct.php";
+    this.http.post(url,body,options)
+    .map(res => res.json())
+    .subscribe(data => {
+      this.itemdata = data;
+    });
+  }
+  viewDetail(itemdata){
+    this.navCtrl.push(ProductDetailPage,itemdata);
   }
 }

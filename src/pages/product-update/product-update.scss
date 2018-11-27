@@ -1,4 +1,12 @@
 page-product-update {
+    ion-select{
+        color: #ffffff;
+        margin:0 center;
+        background: #000000;
+        border-radius: 10px; 
+        max-width: 100%!important;
+        height: 50px;
+    }
     form{
         width:100%;
         margin:0 auto;
@@ -13,26 +21,27 @@ page-product-update {
         -moz-border-radius:15px; 
         -webkit-border-radius:15px; 
     }
-    input[type=text]{
-        color:#000000;
-        background: rgba(255, 255, 255, 1);
-        border-radius: 5px; 
-        height: 30px;
+    img{
+        border-radius: 10px; 
     }
-    input[type=number]{
-        color:#000000;
-        background: rgb(255, 255, 255);
-        border-radius: 5px; 
-        height: 30px;
+    .input{
+        color:#ffffff;
+        background: #000000;
+        border-radius: 10px; 
+        height: 50px;
+    }
+    ion-select{
+        width: 99vw;
     }
     ion-card.card {
-        box-shadow: none;
-        background: rgba(255,255, 255, 0.5);
-        border-radius: 5px; 
-        margin-top: 2px;
+        box-shadow: rgb(10, 10, 10);
+        background: rgb(255, 255, 255);
+        border: medium none;
+        border-radius: 10px; 
+        margin-top: 6px;
         margin-left: 2px;
         margin-right: 2px;
-        margin-bottom: 2px;
+        margin-bottom: 0px;
         height: auto;
         width: 99vw;
         text-align: justify;
@@ -42,7 +51,7 @@ page-product-update {
     }
     a,p,
     ion-card-header.card-header {
-        color: #fff!important;
+        color: rgb(148, 144, 144)!important;
     }
     .list > .item-block:first-child {
         border: medium none;
@@ -50,25 +59,26 @@ page-product-update {
     
     .item {
         margin-bottom: 2px;
-        background: rgba(255,255,255,0);
+        background: #000000;
+        border-radius: 10px; 
         border: medium none;
         .text-input, {
-            color: #fff!important;
+            color: #ffffff;
         }
         input::-moz-placeholder {
-            color: #fff!important;
+            color: #ffffff;
         }
         input::-moz-placeholder {
-            color: #fff!important;
+            color: #ffffff;
         }
         *::-webkit-input-placeholder {
-            color: #fff!important;
+            color: #ffffff;
         }
         *:-ms-input-placeholder {
-            color: #fff!important;
+            color: #ffffff;
         }
         *:-moz-input-placeholder {
-            color: #fff!important;
+            color: #ffffff!important;
         }
     }
 }

@@ -38,6 +38,6 @@ export class ProductDetailPage {
     this.navCtrl.push(UserPage ,this.user);
   }
   web(){
-    window.open("http://esmce.nrru.ac.th/smce/",'_system', 'location=yes');
+    window.open("http://esmce.nrru.ac.th/smce/index.php?Gds_id="+this.gds,'_system', 'location=yes');
   }
 }

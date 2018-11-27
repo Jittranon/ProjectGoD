@@ -11,7 +11,7 @@
 <ion-content   class="background">
     <ion-list *ngFor="let item of items">
                     <ion-card>
-                      <ion-card-header>ข้อมูลกลุ่ม</ion-card-header>
+                      <ion-card-title>ข้อมูลกลุ่ม</ion-card-title>
                       
                           <ion-card-content >
                               <h4><b>กลุ่มธุรกิจ</b><ion-input  type="text" placeholder="กลุ่มธุรกิจ" value="{{ item.g_code }}" [(ngModel)]="g_code"></ion-input></h4>
@@ -24,7 +24,7 @@
                     </ion-card>
                     <ion-card>
                        
-                            <ion-card-header>ข้อมูลสมาชิก</ion-card-header>
+                            <ion-card-title>ข้อมูลสมาชิก</ion-card-title>
                             
                             <ion-card-content >
                                   <h4><b>เลขทะเบียนสมาชิก</b> <ion-input type="text" placeholder="เลขทะเบียนสมาชิก" value="{{ item.mem_no }}" [(ngModel)]="mem_no"></ion-input></h4>
@@ -55,7 +55,7 @@
                           </ion-card>
                           <ion-card>
                              
-                            <ion-card-header>ข้อมูลช่องทางการติดต่อ</ion-card-header>
+                            <ion-card-title>ข้อมูลช่องทางการติดต่อ</ion-card-title>
                             
                             <ion-card-content >
                                   <h4><b>เบอร์บ้าน</b><ion-input type="text" placeholder="เบอร์บ้าน" value="{{ item.mem_telhome }}" [(ngModel)]="mem_telhome"></ion-input></h4>
@@ -69,7 +69,7 @@
                               </ion-card>
                               <ion-card>
                                  
-                            <ion-card-header>ข้อมูลเกี่ยวกับธุรกิจ</ion-card-header>
+                            <ion-card-title>ข้อมูลเกี่ยวกับธุรกิจ</ion-card-title>
                                     
                                 <ion-card-content >
                                    <h4><b>รายละเอียดธุรกิจ</b><ion-input type="text" placeholder="รายละเอียดธุรกิจ" value="{{ item.mem_detail }}" [(ngModel)]="mem_detail"></ion-input> </h4>                                    

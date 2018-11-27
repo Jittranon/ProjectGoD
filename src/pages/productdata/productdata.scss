@@ -17,13 +17,14 @@ page-productdata {
         color:#bcbcbc;
     }
     ion-card.card {
-        box-shadow: none;
-        background: rgba(255,255, 255, 0.5);
-        border-radius: 5px; 
-        margin-top: 2px;
+        box-shadow: rgb(10, 10, 10);
+        background: rgb(255, 255, 255);
+        border: medium none;
+        border-radius: 10px; 
+        margin-top: 6px;
         margin-left: 2px;
         margin-right: 2px;
-        margin-bottom: 2px;
+        margin-bottom: 0px;
         height: 50%;
         width: 99vw;
         text-align: justify;

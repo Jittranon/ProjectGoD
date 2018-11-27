@@ -30,7 +30,7 @@
           </ion-slides>
     </ion-card>
     <ion-card>
-      <ion-card-header>ข้อมูลสินค้า</ion-card-header>
+      <ion-card-title>ข้อมูลสินค้า</ion-card-title>
       <ion-card-content>
         <b>ชื่อสินค้า</b> {{ items.gds_name }}<br>
         <b>รายละเอียดสินค้า</b> {{ items.gds_detail }}<br>
@@ -42,7 +42,7 @@
         <button ion-fab color="dark"><ion-icon name="arrow-dropleft"></ion-icon></button>
         <ion-fab-list side="left">
           <button (click)="map()" ion-fab><ion-icon name="navigate"></ion-icon></button>
-          <button (click)="web()"ion-fab><ion-icon name="link"></ion-icon></button>
+          <button (click)="web()"ion-fab><ion-icon name="basket"></ion-icon></button>
           <button (click)="person()"ion-fab><ion-icon name="person"></ion-icon></button>
 
         </ion-fab-list>

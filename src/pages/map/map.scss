@@ -1,5 +1,16 @@
 page-map {
-
+    .gm-style .gm-style-iw {
+        background:rgba(255, 255, 255, 1) !important;
+        top: 0px !important;
+        left: 0px !important;
+        width: auto !important;
+        height: 150px !important;
+        min-height: 120px !important;
+        padding-top: 10px;
+     }    
+    .gm-style div{
+        background:rgba(255, 255, 255, 0)!important;
+    }
     #map {
         height: 100%;
       }
@@ -32,21 +43,24 @@ page-map {
     }
     ion-card {
         box-shadow: none;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0);
         border-radius: 5px; 
         height:auto;
-        width: 100px;
+        width: 200px;
         text-align: justify;
     }
     ion-card-title {
-        color: rgb(255, 255, 255)!important;
+        color: rgb(0, 0, 0)!important;
         width: 100vw;
     }
     ion-card-content {
-        color: rgb(255, 255, 255)!important;
+        color: rgb(0, 0, 0)!important;
         width: 100vw;
     }
-
+    img{
+        height:120px;
+        width: 200px;
+    }
 
 }
 
