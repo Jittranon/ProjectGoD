@@ -14,9 +14,9 @@
                   refreshingText="กำลังโหลดใหม่">
                 </ion-refresher-content>
               </ion-refresher>
-    <ion-list *ngFor="let item of items">
-        <ion-card  no-lines>
-                <ion-fab top right color="light" >
+    <ion-list >
+        <ion-card *ngFor="let item of items" no-lines>
+                <ion-fab  right color="light" >
                         <button ion-fab mini><ion-icon name="list"></ion-icon></button>
                         <ion-fab-list side="left">
                             <button (click)="delete(item)" color="danger" ion-fab><ion-icon name="trash"></ion-icon></button>

@@ -19,9 +19,6 @@ export class UserDataUpdatePage {
   public districtall: any;
   public amphur: any;
   public district:any;
-  public aa:any;
-  public bb:any;
-  public cc:any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -43,7 +40,7 @@ export class UserDataUpdatePage {
   }
   load(){
     let   body     : string   = "key=select&userCode="+this.userCode,
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectperson.php";
@@ -61,7 +58,7 @@ export class UserDataUpdatePage {
   }
   loadprovince(){
     let   body     : string   = "key=selectprovince",
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectperson.php";
@@ -74,7 +71,7 @@ export class UserDataUpdatePage {
   loadamphur(province){
     province =this.province;
     let   body     : string   = "key=selectamphur&province="+province,
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectperson.php";
@@ -87,7 +84,7 @@ export class UserDataUpdatePage {
   loaddistrict(amphur){
     amphur = this.amphur;
     let   body     : string   = "key=selectdistrict&amphur="+amphur,
-          type     : string   = "application/x-www-form-urlencoded; charset=tis-620",
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
           url      : any      = this.baseURI + "selectperson.php";
@@ -97,10 +94,18 @@ export class UserDataUpdatePage {
       this.districtall = data;
     });
   }
-update(){
-  alert(this.aa);
-  alert(this.bb);
-  alert(this.cc);
-  this.navCtrl.pop();
-}
+update(boss_name,boss_tel,mem_no,mem_typeid,mem_name,mem_nickname,mem_birthday,mem_metier,mem_income,mem_telhome,mem_mobile,mem_fax,mem_email,mem_line,mem_fb,mem_twitter,mem_detail){
+    let   body     : string   = "key=updateuser&boss_name="+boss_name+"&boss_tel="+boss_tel+"&mem_no="+mem_no+"&mem_typeid="+mem_typeid+"&mem_name="+mem_name+"&mem_nickname="+mem_nickname+"&mem_birthday="+mem_birthday+"&mem_metier="+mem_metier+"&mem_income="+mem_income+"&mem_telhome="+mem_telhome+"&mem_mobile="+mem_mobile+"&mem_fax="+mem_fax+"&mem_email="+mem_email+"&mem_line="+mem_line+"&mem_fb="+mem_fb+"&mem_twitter="+mem_twitter+"&mem_detail="+mem_detail+"&m_code="+ this.userCode,
+          type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
+          headers  : any      = new Headers({ 'Content-Type': type}),
+          options  : any      = new RequestOptions({ headers: headers }),
+          url      : any      = this.baseURI + "addandupdate.php";
+        this.http.post(url,body,options)
+        .map(res => res.json())
+        .subscribe(data => {
+        alert(data);
+        });
+        this.navCtrl.pop(); 
+      }
+     
 }

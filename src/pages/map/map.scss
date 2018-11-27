@@ -1,12 +1,13 @@
 page-map {
     .gm-style .gm-style-iw {
         background:rgba(255, 255, 255, 1) !important;
-        top: 0px !important;
-        left: 0px !important;
+        top: 20px !important;
+        left: 25px !important;
         width: auto !important;
-        height: 150px !important;
+        height: auto !important;
         min-height: 120px !important;
         padding-top: 10px;
+        border-radius: 10px; 
      }    
     .gm-style div{
         background:rgba(255, 255, 255, 0)!important;
@@ -44,7 +45,7 @@ page-map {
     ion-card {
         box-shadow: none;
         background: rgba(0, 0, 0, 0);
-        border-radius: 5px; 
+        border-radius: 10px; 
         height:auto;
         width: 200px;
         text-align: justify;

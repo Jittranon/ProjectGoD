@@ -127,9 +127,26 @@ export class MapPage {
             map: this.map,
             icon: 'assets/imgs/'+this.lgds[i].color_img
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card><ion-card-title ><b>'+  this.lgds[i].gds_name +'</b></ion-card-title>'+
+          '<img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"'+
+          '<ion-card-content ><b>รายละเอียด</b>'+  this.lgds[i].gds_detail +'</ion-card-content>'+
+          '<ion-card-content ><b>ราคา</b>'+  this.lgds[i].gds_price +'<b> บาท</b></ion-card-content></ion-card>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
+        google.maps.event.addListener(this.map, 'click', (event) =>{
+          let marker = new google.maps.Marker({
+            position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+            map: this.map,
+            icon: 'assets/imgs/men.png'
+          });
+          this.latlngnow = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+          /*let Camposition : CameraPosition = {
+            target: this.latlngnow,
+            zoom: 22,
+            tilt: 30
+          };
+          this.map.moveCamera(Camposition);*/
+        })
     });
   }
   
@@ -156,9 +173,26 @@ export class MapPage {
             map: this.map,
             icon: 'assets/imgs/'+this.lgds[i].color_img
           });
-          let content = '<ion-card> <ion-card-title hidden ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card><ion-card-title ><b>'+  this.lgds[i].gds_name +'</b></ion-card-title>'+
+                        '<img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"'+
+                        '<ion-card-content ><b>รายละเอียด</b>'+  this.lgds[i].gds_detail +'</ion-card-content>'+
+                        '<ion-card-content ><b>ราคา</b>'+  this.lgds[i].gds_price +'<b> บาท</b></ion-card-content></ion-card>';
           this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
+        google.maps.event.addListener(this.map, 'click', (event) =>{
+          let marker = new google.maps.Marker({
+            position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+            map: this.map,
+            icon: 'assets/imgs/men.png'
+          });
+          this.latlngnow = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+          /*let Camposition : CameraPosition = {
+            target: this.latlngnow,
+            zoom: 22,
+            tilt: 30
+          };
+          this.map.moveCamera(Camposition);*/
+        })
     });
   }
   loadall(){
@@ -184,7 +218,10 @@ export class MapPage {
             map: this.map,
             icon: 'assets/imgs/'+this.lgds[i].color_img
           });
-          let content = '<ion-card><ion-card-title ><b>'+  this.lgds[i].gds_name +' </b></ion-card-title><img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"/>';
+          let content = '<ion-card><ion-card-title ><b>'+  this.lgds[i].gds_name +'</b></ion-card-title>'+
+                        '<img src="http://esmce.nrru.ac.th/smce/upload/'+this.lgds[i].gds_pic1 +'"'+
+                        '<ion-card-content ><b>รายละเอียด</b>'+  this.lgds[i].gds_detail +'</ion-card-content>'+
+                        '<ion-card-content ><b>ราคา</b>'+  this.lgds[i].gds_price +'<b> บาท</b></ion-card-content></ion-card>';
       
        this.addInfoWindow(this.marker, content,this.lgds[i]);
         }
@@ -192,7 +229,7 @@ export class MapPage {
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
           map: this.map,
-          icon: 'assets/imgs/m0.png'
+          icon: 'assets/imgs/men.png'
         });
         this.latlngnow = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
         /*let Camposition : CameraPosition = {
@@ -246,6 +283,9 @@ export class MapPage {
   }
   refresh(){
     this.loadall();
+  }
+  web(){
+    window.open("http://esmce.nrru.ac.th/smce/index.php?Gds_id="+this.gdsid.gds_id,'_system', 'location=yes');
   }
 }
 

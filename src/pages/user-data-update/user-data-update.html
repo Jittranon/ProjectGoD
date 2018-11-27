@@ -14,8 +14,6 @@
                       <ion-card-title>ข้อมูลกลุ่ม</ion-card-title>
                       
                           <ion-card-content >
-                              <h4><b>กลุ่มธุรกิจ</b><ion-input  type="text" placeholder="กลุ่มธุรกิจ" value="{{ item.g_code }}" [(ngModel)]="g_code"></ion-input></h4>
-                              <h4><b>ประเภทธุรกิจ</b> <ion-input  type="text" placeholder="ชื่อสินค้า" value="{{ item.t_code }}" [(ngModel)]="t_code"></ion-input></h4>
                               <h4><b>ชื่อประธานกลุ่ม</b><ion-input  type="text" placeholder="ชื่อประธานกลุ่ม" value="{{ item.boss_name }}" [(ngModel)]="boss_name"></ion-input></h4>
                               <h4><b>หมายเลขโทรศัพท์</b><ion-input type="text" placeholder="หมายเลขโทรศัพท์" value="{{ item.boss_tel }}" [(ngModel)]="boss_tel"></ion-input></h4>
                         </ion-card-content>
@@ -31,26 +29,9 @@
                                   <h4><b>ชื่อกลุ่มวิสาหกิจ</b> <ion-input type="text" placeholder="ชื่อกลุ่มวิสาหกิจ" value="{{ item.mem_typeid }}" [(ngModel)]="mem_typeid"></ion-input></h4>
                                   <h4><b>ชื่อสมาชิก</b>  <ion-input type="text" placeholder="ชื่อสมาชิก" value="{{ item.mem_name }}" [(ngModel)]="mem_name"></ion-input></h4>
                                   <h4><b>ชื่อเล่น</b> <ion-input type="text" placeholder="ชื่อเล่น" value="{{ item.mem_nickname }}" [(ngModel)]="mem_nickname"></ion-input></h4>
-                                  <h4><b>วันเกิด</b> <ion-input type="text" placeholder="วันเกิด" value="{{ item.mem_birthday }}" [(ngModel)]="mem_birthday"></ion-input></h4>
+                                  <h4><b>วันเกิด</b> <ion-input type="date" placeholder="วันเกิด" value="{{ item.mem_birthday }}" [(ngModel)]="mem_birthday"></ion-input></h4>
                                   <h4><b>อาชีพ</b> <ion-input type="text" placeholder="อาชีพ" value="{{ item.mem_metier }}" [(ngModel)]="mem_metier"></ion-input></h4>
-                                  <h4><b>รายได้</b><ion-input type="text" placeholder="รายได้" value="{{ item.mem_income }}" [(ngModel)]="mem_income"></ion-input></h4>
-                                  <h4><b>ที่อยู่</b><ion-input type="text" placeholder="ที่อยู่" value="{{ item.mem_addr }}" [(ngModel)]="mem_addr"></ion-input></h4>
-                                  <h4><b>ภูมิภาค</b><ion-input type="text" placeholder="ภูมิภาค" value="{{ item.geo_id }}" [(ngModel)]="geo_id"></ion-input></h4>
-                                  <h4><b>จังหวัด</b></h4>
-                                  <ion-select (click)=load1(province) stacked [(ngModel)]="province" placeholder="{{item.province_name }}">
-                                      <ion-option value="{{ item.province_id }}"selected>ปัจจุบัน {{item.province_name }}</ion-option>
-                                      <ion-option *ngFor="let province of provinceall" value="{{ province.province_id }}" >{{ province.province_name }}</ion-option>
-                                  </ion-select>
-                                  <h4><b>อำเภอ</b></h4>
-                                  <ion-select (click)=load1(province) (click)=load2(amphur) stacked [(ngModel)]="amphur" placeholder="{{item.amphur_name }}">
-                                      <ion-option  value="{{ item.amphur_id }}"selected>ปัจจุบัน {{item.amphur_name }}</ion-option>
-                                      <ion-option *ngFor="let amphur of amphurall" value="{{ amphur.amphur_id }}">{{ amphur.amphur_name }}</ion-option>
-                                  </ion-select>
-                                  <h4><b>ตำบล</b></h4>
-                                  <ion-select (click)=load2(amphur) stacked [(ngModel)]="district" placeholder="{{item.district_name }}">
-                                      <ion-option  value="{{ item.district_id }}"selected>ปัจจุบัน {{item.district_name }}</ion-option>
-                                      <ion-option  *ngFor="let district of districtall" value="{{ district.district_id }}">{{ district.district_name }}</ion-option>
-                                  </ion-select>
+                                  <h4><b>รายได้</b><ion-input type="number" placeholder="รายได้" value="{{ item.mem_income }}" [(ngModel)]="mem_income"></ion-input></h4>
                             </ion-card-content>
                           </ion-card>
                           <ion-card>
@@ -61,7 +42,7 @@
                                   <h4><b>เบอร์บ้าน</b><ion-input type="text" placeholder="เบอร์บ้าน" value="{{ item.mem_telhome }}" [(ngModel)]="mem_telhome"></ion-input></h4>
                                   <h4><b>มือถือ</b><ion-input type="text" placeholder="มือถือ" value="{{ item.mem_mobile }}" [(ngModel)]="mem_mobile"></ion-input></h4>
                                   <h4><b>เบอร์แฟก</b><ion-input type="text" placeholder="เบอร์แฟก" value="{{ item.mem_fax }}" [(ngModel)]="mem_fax"></ion-input></h4>
-                                  <h4><b>อีเมล์</b><ion-input type="text" placeholder="อีเมล์" value="{{ item.mem_email }}" [(ngModel)]="mem_email"></ion-input></h4>
+                                  <h4><b>อีเมล์</b><ion-input type="email" placeholder="อีเมล์" value="{{ item.mem_email }}" [(ngModel)]="mem_email"></ion-input></h4>
                                   <h4><b>ไลน์ไอดี</b><ion-input type="text" placeholder="ไลน์ไอดี" value="{{ item.mem_line }}" [(ngModel)]="mem_line"></ion-input></h4>
                                   <h4><b>Facebook</b><ion-input type="text" placeholder="Facebook" value="{{ item.mem_fb }}" [(ngModel)]="mem_fb"></ion-input></h4>
                                   <h4><b>Twitter</b><ion-input type="text" placeholder="Twitter" value="{{ item.mem_twitter }}" [(ngModel)]="mem_twitter"></ion-input></h4>
@@ -77,6 +58,6 @@
                             </ion-card>
                           </ion-list>
                           <ion-fab bottom right color="light" >
-                                <button ion-fab mini (click)=update() ion-fab><ion-icon name="cloud-upload"></ion-icon></button>
+                                <button ion-fab mini (click)=update(boss_name,boss_tel,mem_no,mem_typeid,mem_name,mem_nickname,mem_birthday,mem_metier,mem_income,mem_telhome,mem_mobile,mem_fax,mem_email,mem_line,mem_fb,mem_twitter,mem_detail) ion-fab><ion-icon name="cloud-upload"></ion-icon></button>
                         </ion-fab>
 </ion-content>
