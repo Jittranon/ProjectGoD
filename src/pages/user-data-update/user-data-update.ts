@@ -13,6 +13,7 @@ export class UserDataUpdatePage {
   public items : any =[];
   public userCode: any ;
   public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
+  "http://localhost/smce/mobile/"
   public provinceall: any=[];
   public province:any;
   public amphurall: any;
@@ -99,13 +100,13 @@ update(boss_name,boss_tel,mem_no,mem_typeid,mem_name,mem_nickname,mem_birthday,m
           type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
-          url      : any      = this.baseURI + "addandupdate.php";
+          url      : any      = "http://localhost/smce/mobile/addandupdate.php";//this.baseURI + 
         this.http.post(url,body,options)
         .map(res => res.json())
         .subscribe(data => {
         alert(data);
         });
-        this.navCtrl.pop(); 
+        //this.navCtrl.pop(); 
       }
      
 }
