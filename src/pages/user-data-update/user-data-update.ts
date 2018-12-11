@@ -13,7 +13,6 @@ export class UserDataUpdatePage {
   public items : any =[];
   public userCode: any ;
   public baseURI :string = "http://esmce.nrru.ac.th/smce/mobile/";
-  "http://localhost/smce/mobile/"
   public provinceall: any=[];
   public province:any;
   public amphurall: any;
@@ -95,18 +94,18 @@ export class UserDataUpdatePage {
       this.districtall = data;
     });
   }
-update(boss_name,boss_tel,mem_no,mem_typeid,mem_name,mem_nickname,mem_birthday,mem_metier,mem_income,mem_telhome,mem_mobile,mem_fax,mem_email,mem_line,mem_fb,mem_twitter,mem_detail){
-    let   body     : string   = "key=updateuser&boss_name="+boss_name+"&boss_tel="+boss_tel+"&mem_no="+mem_no+"&mem_typeid="+mem_typeid+"&mem_name="+mem_name+"&mem_nickname="+mem_nickname+"&mem_birthday="+mem_birthday+"&mem_metier="+mem_metier+"&mem_income="+mem_income+"&mem_telhome="+mem_telhome+"&mem_mobile="+mem_mobile+"&mem_fax="+mem_fax+"&mem_email="+mem_email+"&mem_line="+mem_line+"&mem_fb="+mem_fb+"&mem_twitter="+mem_twitter+"&mem_detail="+mem_detail+"&m_code="+ this.userCode,
+update(boss_name,boss_tel,mem_no,mem_typeid,mem_name,mem_nickname,mem_birthday,mem_metier,mem_income,men_telhome,mem_mobile,mem_fax,mem_email,mem_line,men_fb,mem_twitter,mem_detail){
+    let   body     : string   = "key=updateuser&boss_name="+boss_name+"&boss_tel="+boss_tel+"&mem_no="+mem_no+"&mem_typeid="+mem_typeid+"&mem_name="+mem_name+"&mem_nickname="+mem_nickname+"&mem_birthday="+mem_birthday+"&mem_metier="+mem_metier+"&mem_income="+mem_income+"&men_telhome="+men_telhome+"&mem_mobile="+mem_mobile+"&mem_fax="+mem_fax+"&mem_email="+mem_email+"&mem_line="+mem_line+"&men_fb="+men_fb+"&mem_twitter="+mem_twitter+"&mem_detail="+mem_detail+"&m_code="+ this.userCode,
           type     : string   = "application/x-www-form-urlencoded; charset=utf-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
-          url      : any      = "http://localhost/smce/mobile/addandupdate.php";//this.baseURI + 
+          url      : any      = this.baseURI + "addandupdate.php";
         this.http.post(url,body,options)
         .map(res => res.json())
         .subscribe(data => {
         alert(data);
         });
-        //this.navCtrl.pop(); 
+        this.navCtrl.pop(); 
       }
      
 }
